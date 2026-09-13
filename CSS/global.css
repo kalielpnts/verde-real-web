@@ -1,0 +1,923 @@
+/* ============================================================
+   global.css - ESTILOS GLOBAIS DO SITE VERDE REAL
+   ============================================================
+   Este arquivo contém:
+   - Variáveis CSS (cores, fontes, espaçamentos)
+   - Reset e estilos base
+   - Preloader (carregamento)
+   - Header e Footer
+   - Componentes reutilizáveis (botões, tags, cards)
+   - Utilitários (flex, grid, etc.)
+   - Responsividade base
+   ============================================================ */
+
+/* ============================================================
+   1. VARIÁVEIS CSS
+   ============================================================ */
+   :root {
+    /* Cores principais */
+    --verde-primario: #407a6c;
+    --verde-secundario: #305750;
+    --verde-terciario: #25423c;
+    --verde-claro: #d8e6e1;
+    --verde-detalhe: #B5CEC6;
+    --verde-detalhe2: #6f9287;
+    --verde-escuro-bg: #163a3a;
+    
+    /* Cores neutras */
+    --bege-fundo: #faf4eb;
+    --bege-escuro: #e4decc;
+    --branco: #ffffff;
+    --texto-dark: #1e2b2b;
+    --dourado: #c9a959;
+    
+    /* Bordas e sombras */
+    --border-linha: 1px solid rgba(48, 87, 80, 0.25);
+    --radius-sharp: 0px;
+    
+    /* Fontes */
+    --fonte-principal: 'Inter', sans-serif;
+    --fonte-mono: 'Space Mono', monospace;
+    
+    /* Espaçamentos fluidos */
+    --pad-section: clamp(3rem, 6vw, 6rem);
+    --pad-lateral: clamp(1.5rem, 5vw, 4rem);
+    --font-h1: clamp(2.8rem, 6vw, 5rem);
+    --font-h2: clamp(2.5rem, 5vw, 4.5rem);
+    --font-h3: clamp(2rem, 4vw, 3rem);
+    --font-h4: clamp(1.5rem, 3vw, 2rem);
+    --font-p: clamp(1rem, 1.5vw, 1.25rem);
+    --font-small: clamp(0.75rem, 1vw, 0.9rem);
+}
+
+/* ============================================================
+   2. RESET E ESTILOS BASE
+   ============================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--fonte-principal);
+    background-color: var(--bege-fundo);
+    color: var(--texto-dark);
+    overflow-x: hidden;
+    line-height: 1.6;
+    max-width: 2560px;
+    margin: 0 auto;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+    width: clamp(5px, 1vw, 10px);
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bege-fundo);
+    border-left: var(--border-linha);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--verde-primario);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--verde-secundario);
+}
+
+/* Seleção de texto */
+::selection {
+    background: var(--verde-primario);
+    color: var(--branco);
+}
+
+/* Imagens responsivas */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Links */
+a {
+    color: var(--verde-primario);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--verde-secundario);
+}
+
+/* ============================================================
+   3. UTILITÁRIOS
+   ============================================================ */
+.flex {
+    display: flex;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.gap-1 { gap: 0.5rem; }
+.gap-2 { gap: 1rem; }
+.gap-3 { gap: 1.5rem; }
+.gap-4 { gap: 2rem; }
+.gap-5 { gap: 3rem; }
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.w-100 { width: 100%; }
+.h-100 { height: 100%; }
+
+/* Cores de fundo utilitárias */
+.bg-verde1 { background-color: var(--verde-primario); }
+.bg-verde2 { background-color: var(--verde-secundario); }
+.bg-bege { background-color: var(--bege-fundo); }
+.bg-branco { background-color: var(--branco); }
+
+/* Cores de texto utilitárias */
+.f-branca { color: var(--branco); }
+.f-verde { color: var(--verde-primario); }
+.f-verde-escuro { color: var(--verde-secundario); }
+.f-dourado { color: var(--dourado); }
+
+/* ============================================================
+   4. PRELOADER (ANIMAÇÃO DE CARREGAMENTO)
+   ============================================================ */
+.preloader {
+    position: fixed;
+    inset: 0;
+    background-color: var(--bege-fundo);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    transition: opacity 0.8s ease, visibility 0.8s;
+}
+
+.preloader__container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Bolinhas giratórias */
+.ponto {
+    z-index: 0;
+    transform: rotate(0deg) translateY(40px) rotate(0deg);
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: var(--verde-detalhe);
+    border-radius: 50%;
+    animation: girar 1.8s cubic-bezier(0.9, 0.1, 0.4, 1) infinite;
+}
+
+.ponto:nth-child(1) { opacity: 1; animation-delay: 0s; }
+.ponto:nth-child(2) { opacity: 0.8; animation-delay: 0.1s; }
+.ponto:nth-child(3) { opacity: 0.4; animation-delay: 0.2s; }
+.ponto:nth-child(4) { opacity: 0.2; animation-delay: 0.3s; }
+
+@keyframes girar {
+    0% {
+        transform: rotate(0deg) translateY(45px) rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg) translateY(45px) rotate(-360deg);
+    }
+}
+
+/* Ícone da plantinha */
+.preloader__icone {
+    z-index: 1000;
+    color: var(--verde-primario);
+    font-size: 2.2rem;
+    animation: pulsar 1.8s cubic-bezier(0.6, 0.1, 0.4, 1) infinite;
+}
+
+@keyframes pulsar {
+    0%, 100% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+.preloader--escondido {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Partículas de CO2 e O2 */
+.troca-gasosa {
+    z-index: 500;
+    color: var(--verde-detalhe);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.particula {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    opacity: 0;
+    font-family: var(--fonte-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+.co2 {
+    animation-delay: 0.2s;
+    animation: entrar 1.8s cubic-bezier(0.6, 0.1, 0.3, 0.7) infinite;
+}
+
+.o2 {
+    animation-delay: 0.11s;
+    animation: sair 1.8s cubic-bezier(0.6, 0.1, 0.4, 1) infinite;
+}
+
+@keyframes entrar {
+    0% {
+        font-size: 15px;
+        rotate: 20deg;
+        transform: rotate(0deg) translate(-75px, -40px);
+        opacity: 0;
+    }
+    50% { opacity: 1; }
+    75% { opacity: 0; }
+    100% {
+        font-size: 0px;
+        rotate: 40deg;
+        transform: rotate(-40deg) translate(20px, 15px);
+        opacity: 0;
+    }
+}
+
+@keyframes sair {
+    0% {
+        font-size: 1px;
+        rotate: 10deg;
+        transform: rotate(0deg) translate(-5px, -10px);
+        opacity: 0;
+    }
+    50% { opacity: 1; }
+    100% {
+        font-size: 15px;
+        rotate: 20deg;
+        transform: rotate(-40deg) translate(70px, -20px);
+        opacity: 0;
+    }
+}
+
+/* ============================================================
+   5. HEADER PADRÃO
+   ============================================================ */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: var(--border-linha);
+    justify-content: space-between;
+    align-items: center;
+    padding: clamp(1rem, 1.5vw, 1.5rem) var(--pad-lateral);
+    min-height: 80px;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.logo-box {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo-box h1 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--verde-secundario);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.logo-box h1 i {
+    color: var(--verde-primario);
+}
+
+/* Navegação */
+.nav-links {
+    gap: clamp(1rem, 3vw, 3rem);
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.nav-links a:not(.btn-login):not(.btn-acao) {
+    font-weight: 600;
+    font-size: clamp(0.75rem, 1.2vw, 0.9rem);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--verde-secundario);
+    transition: 0.3s;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.nav-links a:not(.btn-login):not(.btn-acao)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--verde-primario);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:not(.btn-login):not(.btn-acao):hover::after {
+    width: 100%;
+}
+
+.nav-links a:not(.btn-login):not(.btn-acao):hover {
+    color: var(--verde-primario);
+}
+
+/* Botão de login no header */
+.btn-login {
+    padding: 0.6rem 1.5rem;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    font-family: var(--fonte-principal);
+    color: var(--branco);
+    background: var(--verde-secundario);
+}
+
+.btn-login:hover {
+    background: var(--verde-primario);
+    transform: scale(1.05);
+}
+
+/* ============================================================
+   6. BOTÕES PADRÃO
+   ============================================================ */
+.btn-acao {
+    padding: clamp(0.8rem, 2vw, 1.2rem) clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 600;
+    font-size: clamp(0.8rem, 1vw, 0.95rem);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: var(--radius-sharp);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    text-align: center;
+    border: none;
+    font-family: var(--fonte-principal);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn--escuro {
+    background: var(--verde-secundario);
+    color: var(--branco);
+    border: 1px solid var(--verde-secundario);
+    box-shadow: 4px 4px 0 var(--verde-primario);
+}
+
+.btn--escuro:hover {
+    transform: translate(4px, 4px);
+    box-shadow: 0px 0px 0 var(--verde-primario);
+    background: var(--verde-primario);
+    cursor: pointer;
+}
+
+.btn--vazado {
+    background: transparent;
+    color: var(--verde-secundario);
+    border: 1px solid var(--verde-secundario);
+}
+
+.btn--vazado::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--verde-secundario);
+    z-index: -1;
+    transition: left 0.4s ease;
+}
+
+.btn--vazado:hover::before {
+    left: 0;
+}
+
+.btn--vazado:hover {
+    color: var(--branco);
+    border-color: var(--verde-secundario);
+    cursor: pointer;
+}
+
+.btn--branco {
+    background: var(--branco);
+    color: var(--verde-secundario);
+    border: 1px solid var(--branco);
+}
+
+.btn--branco:hover {
+    background: var(--verde-claro);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+/* ============================================================
+   7. FOOTER PADRÃO
+   ============================================================ */
+footer {
+    background: var(--verde-escuro-bg);
+    color: var(--branco);
+    padding: var(--pad-section) var(--pad-lateral) 2rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+footer::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: clamp(150px, 20vw, 300px);
+    height: clamp(150px, 20vw, 300px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.footer__conteudo {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 2rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+.footer__coluna {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: flex-start;
+}
+
+.footer__coluna h1 {
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer__titulo {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-family: var(--fonte-mono);
+    letter-spacing: 1px;
+    color: var(--verde-detalhe);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0.5rem;
+}
+
+.footer__titulo::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: var(--verde-primario);
+    display: block;
+}
+
+.footer__coluna ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.footer__coluna a {
+    color: var(--verde-claro);
+    transition: all 0.3s ease;
+    display: inline-block;
+    font-size: 0.95rem;
+}
+
+.footer__coluna a:hover {
+    color: var(--dourado);
+    transform: translateX(5px);
+}
+
+.footer__copyright {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2rem;
+    font-family: var(--fonte-mono);
+    font-size: 0.85rem;
+    color: var(--verde-detalhe);
+    text-align: center;
+    width: 100%;
+}
+
+/* ============================================================
+   8. COMPONENTES REUTILIZÁVEIS
+   ============================================================ */
+
+/* Tag informativa */
+.tag-info {
+    font-family: var(--fonte-mono);
+    font-size: clamp(0.7rem, 1vw, 0.85rem);
+    text-transform: uppercase;
+    color: var(--verde-secundario);
+    border: 1px solid var(--verde-secundario);
+    padding: 0.5rem 1rem;
+    width: fit-content;
+    margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+    background: rgba(64, 122, 108, 0.05);
+    transition: 0.3s;
+}
+
+.tag-info:hover {
+    background: var(--verde-primario);
+    color: var(--branco);
+    box-shadow: 4px 4px 0 var(--verde-secundario);
+}
+
+/* Marquee */
+.marquee {
+    background: var(--verde-claro);
+    padding: clamp(1rem, 2vw, 1.5rem) 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-bottom: var(--border-linha);
+    color: var(--verde-secundario);
+    font-family: var(--fonte-mono);
+    font-weight: 600;
+    font-size: clamp(0.8rem, 1.5vw, 1.1rem);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.marquee:hover {
+    background: var(--verde-secundario);
+    color: var(--verde-claro);
+    letter-spacing: 4px;
+}
+
+.marquee-inner {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marqueeScroll 30s linear infinite;
+}
+
+@keyframes marqueeScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Botões de loja (App Store, Google Play) */
+.btn-loja {
+    background: var(--verde-secundario);
+    color: var(--branco);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: 0.3s;
+    border: 2px solid var(--verde-secundario);
+}
+
+.btn-loja i {
+    font-size: 1.8rem;
+}
+
+.btn-loja span {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-size: 0.7rem;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.btn-loja span strong {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.btn-loja:hover {
+    background: var(--branco);
+    color: var(--verde-secundario);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================================
+   9. TOAST MENSAGENS
+   ============================================================ */
+.toast-message {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 16px 24px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    max-width: 420px;
+    background: #ffffff;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    animation: toastSlideUp 0.4s ease;
+    font-family: var(--fonte-principal);
+    border-left: 5px solid var(--verde-primario);
+}
+
+.toast-message.success { border-left-color: #2e7d32; }
+.toast-message.success i { color: #2e7d32; }
+.toast-message.error { border-left-color: #c62828; }
+.toast-message.error i { color: #c62828; }
+.toast-message.info { border-left-color: #1565c0; }
+.toast-message.info i { color: #1565c0; }
+
+.toast-message i {
+    font-size: 22px;
+}
+
+.toast-message span {
+    flex: 1;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.4;
+}
+
+.toast-message button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #999;
+    padding: 0 4px;
+    transition: color 0.2s;
+}
+
+.toast-message button:hover {
+    color: #333;
+}
+
+.toast-message.fade-out {
+    animation: toastFadeOut 0.3s ease forwards;
+}
+
+@keyframes toastSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes toastFadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+/* ============================================================
+   10. RESPONSIVIDADE GLOBAL
+   ============================================================ */
+
+/* Tablets e telas médias */
+@media (max-width: 1024px) {
+    .footer__conteudo {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem 2rem;
+    }
+    
+    header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+    
+    .logo-box h1 {
+        justify-content: center;
+    }
+    
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .footer__conteudo {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+    }
+    
+    .footer__coluna {
+        align-items: center;
+    }
+    
+    .footer__titulo {
+        justify-content: center;
+    }
+    
+    .footer__coluna p {
+        justify-content: center;
+        text-align: center;
+        margin: 0 auto;
+    }
+    
+    .footer__coluna a:hover {
+        transform: translateY(-3px);
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    
+    .nav-links a:not(.btn-login):not(.btn-acao) {
+        font-size: 0.75rem;
+    }
+    
+    .btn-login {
+        padding: 0.4rem 1rem;
+        font-size: 0.75rem;
+    }
+    
+    .toast-message {
+        bottom: 20px;
+        right: 20px;
+        left: 20px;
+        max-width: none;
+        padding: 14px 18px;
+    }
+}
+
+/* Telas muito pequenas */
+@media (max-width: 480px) {
+    :root {
+        --pad-lateral: 1rem;
+        --pad-section: 2rem;
+    }
+    
+    .logo-box h1 {
+        font-size: 1.3rem;
+    }
+    
+    .nav-links {
+        gap: 0.8rem;
+    }
+    
+    .nav-links a:not(.btn-login):not(.btn-acao) {
+        font-size: 0.65rem;
+        letter-spacing: 0.5px;
+    }
+}
+
+/* ============================================================
+   11. ANIMAÇÕES GLOBAIS
+   ============================================================ */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Classe para animação de entrada */
+.fade-in {
+    animation: fadeIn 0.6s ease forwards;
+}
+
+.scale-in {
+    animation: scaleIn 0.5s ease forwards;
+}
+
+/* ============================================================
+   12. HELPERS PARA ACESSIBILIDADE
+   ============================================================ */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Foco visível para navegação por teclado */
+:focus-visible {
+    outline: 3px solid var(--verde-primario);
+    outline-offset: 2px;
+}
+
+

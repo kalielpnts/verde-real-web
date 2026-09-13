@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login · Verde Real</title>
+    
+    <!-- FONTES E ÍCONES -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/pages/login.css">
+</head>
+<body class="login-page" onload="hidePreloader()">
+
+    <!-- ============================================================
+         PRELOADER
+         ============================================================ -->
+    <div id="preloader" class="preloader">
+        <div class="preloader__container">
+            <div class="ponto"></div>
+            <div class="ponto"></div>
+            <div class="ponto"></div>
+            <div class="ponto"></div>
+            <div class="troca-gasosa">
+                <p class="particula co2">CO2</p>
+                <p class="particula o2">O2</p>
+            </div>
+            <i class="fa-solid fa-seedling preloader__icone"></i>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         JANELA DE LOGIN
+         ============================================================ -->
+    <div class="login-container">
+        
+        <!-- ======================== HERO (PARTE VERDE) ======================== -->
+        <div class="login-hero">
+            <div class="hero__logo">
+                <h1><i class="fa-solid fa-seedling"></i> Verde Real</h1>
+                <span>TRANSPARÊNCIA AMBIENTAL</span>
+            </div>
+            
+            <div class="hero__citacao">
+                <div class="citacao__texto">
+                    "O futuro é verde, <br>mas só se for verdadeiro."
+                </div>
+                <div class="citacao__autor">
+                    <div class="autor-avatar"><i class="fas fa-leaf"></i></div>
+                    <div class="autor-info">
+                        <strong>Marina Castro</strong>
+                        <span>Diretora ESG, Pacto Global</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero__stats">
+                <div class="stat__item">
+                    <span class="stat__numero">1.240+</span>
+                    <span class="stat__texto">empresas monitoradas</span>
+                </div>
+                <div class="stat__item">
+                    <span class="stat__numero">342</span>
+                    <span class="stat__texto">denúncias ativas</span>
+                </div>
+                <div class="stat__item">
+                    <span class="stat__numero">78</span>
+                    <span class="stat__texto">selos concedidos</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======================== FORMS (PARTE BRANCA) ======================== -->
+        <div class="login-forms">
+            
+            <!-- Header -->
+            <div class="forms__header">
+                <h2>Acessar plataforma</h2>
+                <button class="btn-tema" id="btnTema" title="Alternar tema">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+
+            <!-- Abas de navegação -->
+            <div class="form__navs">
+                <button class="form__nav active" data-tab="login">Entrar</button>
+                <button class="form__nav" data-tab="criar">Criar conta</button>
+                <button class="form__nav" data-tab="recuperar">Recuperar</button>
+            </div>
+
+            <!-- ============================================================
+                 FORMULÁRIO DE LOGIN
+                 ============================================================ -->
+            <form id="loginContaForm" class="form active">
+                <div class="form__conteudo">
+                    
+                    <div class="form__grupo-input">
+                        <label>E-mail</label>
+                        <div class="input__icone">
+                            <i class="far fa-envelope"></i>
+                            <input type="email" id="loginEmail" placeholder="seu@email.com">
+                        </div>
+                    </div>
+                    
+                    <div class="form__grupo-input">
+                        <label>Senha</label>
+                        <div class="input__icone">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="loginSenha" placeholder="••••••••">
+                        </div>
+                    </div>
+                    
+                    <div class="checkbox">
+                        <input type="checkbox" id="manterConectado" checked>
+                        <label for="manterConectado">Manter conectado</label>
+                    </div>
+                    
+                    <button type="submit" class="btn-acao btn--escuro" id="btnLogin">
+                        <i class="fas fa-sign-in-alt"></i> Entrar
+                    </button>
+                    
+                    <div class="login-social">
+                        <button type="button" class="btn-social">
+                            <i class="fab fa-google"></i> Google
+                        </button>
+                        <button type="button" class="btn-social">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </button>
+                    </div>
+                    
+                    <div class="login__links">
+                        <a href="#" id="esqueciMinhaSenha">Esqueci minha senha</a>
+                        <a href="#" id="naoTenhoConta">Não tenho conta</a>
+                    </div>
+                    
+                </div>
+            </form>
+
+            <!-- ============================================================
+                 FORMULÁRIO DE CRIAR CONTA
+                 ============================================================ -->
+            <div id="criarContaForm" class="form">
+                <form class="form__conteudo" id="formCriarConta">
+                    
+                    <div class="form__grupo-input">
+                        <label>Nome completo / Razão social</label>
+                        <div class="input__icone">
+                            <i class="far fa-user"></i>
+                            <input type="text" id="registrarNome" placeholder="Ex: Ana Souza ou EcoVita Ltda">
+                        </div>
+                    </div>
+                    
+                    <div class="form__grupo-input">
+                        <label>E-mail</label>
+                        <div class="input__icone">
+                            <i class="far fa-envelope"></i>
+                            <input type="email" id="registrarEmail" placeholder="contato@empresa.com">
+                        </div>
+                    </div>
+                    
+                    <div class="form__grupo-input">
+                        <label>Tipo de perfil</label>
+                        <div class="input__icone">
+                            <i class="fas fa-tag"></i>
+                            <select id="tipoPerfil">
+                                <option value="cliente">Cliente / Consumidor</option>
+                                <option value="empresa">Empresa (interessada no selo)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form__grupo-input">
+                        <label>Senha</label>
+                        <div class="input__icone">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="criarSenha" placeholder="mínimo 6 caracteres">
+                        </div>
+                        <div class="tamanho-senha">
+                            <div class="barra-senha"></div>
+                            <div class="barra-senha"></div>
+                            <div class="barra-senha"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form__grupo-input">
+                        <label>Confirmar senha</label>
+                        <div class="input__icone">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="confirmarSenha" placeholder="********">
+                        </div>
+                    </div>
+                    
+                    <div class="checkbox">
+                        <input type="checkbox" id="termos">
+                        <label for="termos">Aceito os termos de uso e política de privacidade</label>
+                    </div>
+                    
+                    <button type="submit" class="btn-acao btn--escuro" id="btnCriarConta">
+                        <i class="fas fa-user-plus"></i> Criar conta
+                    </button>
+                    
+                </form>
+            </div>
+
+            <!-- ============================================================
+                 FORMULÁRIO DE RECUPERAR SENHA
+                 ============================================================ -->
+            <div id="recuperarContaForm" class="form">
+                <div class="form__conteudo">
+                    
+                    <p style="color: var(--verde-detalhe2); font-size: 0.95rem; margin-bottom: 0.5rem;">
+                        Digite seu e-mail cadastrado e enviaremos um link para redefinir sua senha.
+                    </p>
+                    
+                    <div class="form__grupo-input">
+                        <label>E-mail cadastrado</label>
+                        <div class="input__icone">
+                            <i class="far fa-envelope"></i>
+                            <input type="email" id="recuperarEmail" placeholder="seu@email.com">
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn-acao btn--escuro" id="btnRecuperarSenha">
+                        <i class="fas fa-paper-plane"></i> Enviar link de recuperação
+                    </button>
+                    
+                    <button type="button" class="btn-outline" id="btnvoltarParaLogin">
+                        <i class="fas fa-arrow-left"></i> Voltar ao login
+                    </button>
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ============================================================
+         SCRIPTS - ORDEM CORRETA
+         ============================================================ -->
+
+    <!-- 1. Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- 2. Configuração do Supabase -->
+    <script src="../js/supabase/supabase-config.js"></script>
+
+    <!-- 3. Banco de dados (operações com Supabase) -->
+    <script src="../js/supabase/db-supabase.js"></script>
+
+    <!-- 4. Autenticação -->
+    <script src="../js/supabase/auth-supabase.js"></script>
+
+    <!-- 5. Utilitários e funções globais -->
+    <script src="../js/utils.js"></script>
+    <script src="../js/supabase/main-supabase.js"></script>
+
+    <!-- 6. Controlador de Login -->
+    <script src="../js/login.js"></script>
+
+    <!-- ============================================================
+         SCRIPT ADICIONAL (fallback e compatibilidade)
+         ============================================================ -->
+    <script>
+        // ============================================================
+        // HIDE PRELOADER
+        // ============================================================
+        function hidePreloader() {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                preloader.classList.add('preloader--escondido');
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 500);
+            }
+        }
+
+        // ============================================================
+        // REDIRECIONAR SE JÁ ESTIVER LOGADO
+        // (o alternador de tema é tratado por LoginManager.configurarTema()
+        //  em login.js — não duplicar o listener aqui)
+        // ============================================================
+        document.addEventListener('DOMContentLoaded', async function() {
+            if (typeof auth !== 'undefined' && auth && auth.initPromise) {
+                await auth.initPromise;
+            }
+            if (typeof auth !== 'undefined' && auth && auth.isLogado()) {
+                const user = auth.getUsuarioLogado();
+                if (user.tipo === 'empresa' || user.tipo === 'empresa_selo') {
+                    window.location.href = 'feed-empresa.html';
+                } else {
+                    window.location.href = 'feed-cliente.html';
+                }
+            }
+        });
+
+        // ============================================================
+        // MOSTRAR TOAST (fallback caso o main não carregue)
+        // ============================================================
+        function showToast(message, type = 'info', duration = 4000) {
+            const old = document.querySelector('.toast-message');
+            if (old) old.remove();
+
+            const toast = document.createElement('div');
+            toast.className = `toast-message ${type}`;
+            
+            const icons = {
+                success: 'fa-check-circle',
+                error: 'fa-exclamation-circle',
+                info: 'fa-info-circle'
+            };
+            
+            toast.innerHTML = `
+                <i class="fas ${icons[type] || icons.info}"></i>
+                <span>${message}</span>
+                <button onclick="this.parentElement.remove()">&times;</button>
+            `;
+            
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.classList.add('fade-out');
+                setTimeout(() => toast.remove(), 300);
+            }, duration);
+        }
+    </script>
+
+</body>
+</html>
+

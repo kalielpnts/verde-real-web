@@ -1,0 +1,843 @@
+/* ============================================================
+   sobre.css - ESTILOS ESPECÍFICOS DA PÁGINA SOBRE NÓS
+   ============================================================
+   Este arquivo contém todos os estilos exclusivos da página
+   sobre (sobre.html), incluindo:
+   - Hero cinematico
+   - Timeline da história
+   - Cards de missão/visão/valores
+   - Equipe fundadora
+   - Números de impacto
+   - Call to action
+   - Animações de entrada
+   ============================================================ */
+
+/* ============================================================
+   1. HERO SOBRE NÓS (CINEMÁTICO)
+   ============================================================ */
+   .about-hero {
+    min-height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--pad-section) var(--pad-lateral);
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--verde-escuro-bg) 0%, var(--verde-secundario) 100%);
+}
+
+/* Grid de fundo */
+.about-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+        repeating-linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0.02) 0px,
+            rgba(255, 255, 255, 0.02) 2px,
+            transparent 2px,
+            transparent 8px
+        );
+    pointer-events: none;
+}
+
+/* Círculo decorativo */
+.about-hero::after {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -10%;
+    width: 60%;
+    height: 80%;
+    background: radial-gradient(circle, rgba(64, 122, 108, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.hero-tag {
+    font-family: var(--fonte-mono);
+    font-size: 0.85rem;
+    color: var(--verde-claro);
+    letter-spacing: 4px;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.4rem 1.2rem;
+    border-radius: 40px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.about-hero h1 {
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-weight: 800;
+    color: var(--branco);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.about-hero h1 span {
+    color: var(--verde-claro);
+    position: relative;
+    display: inline-block;
+}
+
+.about-hero h1 span::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--verde-primario);
+    opacity: 0.4;
+}
+
+.about-hero p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Scroll indicator */
+.hero-scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+    cursor: pointer;
+    z-index: 2;
+    color: var(--verde-claro);
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.hero-scroll:hover {
+    color: var(--branco);
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(10px);
+    }
+}
+
+/* ============================================================
+   2. SEÇÃO NOSSA HISTÓRIA (TIMELINE)
+   ============================================================ */
+.historia {
+    padding: var(--pad-section) var(--pad-lateral);
+    background: var(--bege-fundo);
+    border-bottom: var(--border-linha);
+    position: relative;
+}
+
+.historia-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.historia-texto .tag {
+    font-family: var(--fonte-mono);
+    color: var(--verde-primario);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.historia-texto h2 {
+    font-size: var(--font-h3);
+    color: var(--verde-secundario);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.historia-texto p {
+    color: var(--verde-detalhe2);
+    margin-bottom: 1.2rem;
+    line-height: 1.7;
+    font-size: var(--font-p);
+}
+
+.historia-texto p:last-of-type {
+    margin-bottom: 0;
+}
+
+/* Linha do tempo */
+.linha-tempo {
+    position: relative;
+    padding-left: 2rem;
+    border-left: 2px solid var(--verde-primario);
+}
+
+.marco {
+    margin-bottom: 2.5rem;
+    position: relative;
+    padding-left: 1.5rem;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 0.6s ease;
+}
+
+.marco:last-child {
+    margin-bottom: 0;
+}
+
+.marco.visivel {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.marco::before {
+    content: '';
+    position: absolute;
+    left: -2.2rem;
+    top: 0.3rem;
+    width: 14px;
+    height: 14px;
+    background: var(--verde-primario);
+    border-radius: 50%;
+    border: 3px solid var(--bege-fundo);
+    box-shadow: 0 0 0 2px var(--verde-primario);
+    transition: all 0.3s ease;
+}
+
+.marco:hover::before {
+    transform: scale(1.3);
+    background: var(--dourado);
+    box-shadow: 0 0 0 2px var(--dourado);
+}
+
+.marco .ano {
+    font-family: var(--fonte-mono);
+    font-weight: 700;
+    color: var(--verde-primario);
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
+    display: block;
+}
+
+.marco h4 {
+    font-size: 1.1rem;
+    color: var(--verde-secundario);
+    margin-bottom: 0.3rem;
+}
+
+.marco p {
+    color: var(--verde-detalhe2);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* ============================================================
+   3. MISSÃO, VISÃO, VALORES (CARDS FLUTUANTES)
+   ============================================================ */
+.valores {
+    padding: var(--pad-section) var(--pad-lateral);
+    background: var(--verde-claro);
+    border-bottom: var(--border-linha);
+}
+
+.section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.section-header .tag {
+    font-family: var(--fonte-mono);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    color: var(--verde-primario);
+    display: inline-block;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.section-header h2 {
+    font-size: var(--font-h3);
+    color: var(--verde-secundario);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.section-header p {
+    color: var(--verde-detalhe2);
+    font-size: var(--font-p);
+    line-height: 1.6;
+}
+
+.cards-valores {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.card-valor {
+    background: var(--branco);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    border: var(--border-linha);
+    transition: all 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+    border-radius: 4px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.card-valor.visivel {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card-valor:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(48, 87, 80, 0.12);
+}
+
+.card-valor::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--verde-primario), var(--dourado));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.card-valor:hover::before {
+    transform: scaleX(1);
+}
+
+.card-valor i {
+    font-size: 3rem;
+    color: var(--verde-primario);
+    margin-bottom: 1.2rem;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.card-valor:hover i {
+    transform: scale(1.1) rotate(-5deg);
+}
+
+.card-valor h3 {
+    font-size: 1.6rem;
+    color: var(--verde-secundario);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.card-valor p {
+    color: var(--verde-detalhe2);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* ============================================================
+   4. EQUIPE
+   ============================================================ */
+.equipe {
+    padding: var(--pad-section) var(--pad-lateral);
+    background: var(--bege-fundo);
+    border-bottom: var(--border-linha);
+}
+
+.equipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.membro-card {
+    background: var(--branco);
+    border: var(--border-linha);
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.membro-card.visivel {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.membro-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(48, 87, 80, 0.1);
+}
+
+.membro-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--verde-primario), var(--dourado));
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease;
+}
+
+.membro-card:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.membro-card .avatar {
+    width: 120px;
+    height: 120px;
+    background: var(--verde-claro);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.2rem;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.membro-card .avatar i {
+    font-size: 3.5rem;
+    color: var(--verde-primario);
+    transition: all 0.4s ease;
+}
+
+.membro-card:hover .avatar {
+    transform: scale(1.05);
+    background: var(--verde-primario);
+}
+
+.membro-card:hover .avatar i {
+    color: var(--branco);
+}
+
+/* Efeito de anel no avatar */
+.membro-card .avatar::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    transition: all 0.4s ease;
+}
+
+.membro-card:hover .avatar::before {
+    border-color: var(--dourado);
+}
+
+.membro-card h4 {
+    font-size: 1.3rem;
+    color: var(--verde-secundario);
+    margin-bottom: 0.3rem;
+    font-weight: 700;
+}
+
+.membro-card .cargo {
+    font-family: var(--fonte-mono);
+    font-size: 0.8rem;
+    color: var(--verde-primario);
+    margin-bottom: 1rem;
+    display: inline-block;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.membro-card .bio {
+    color: var(--verde-detalhe2);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* ============================================================
+   5. NÚMEROS DE IMPACTO (CONTADORES)
+   ============================================================ */
+.impacto-numeros {
+    padding: var(--pad-section) var(--pad-lateral);
+    background: linear-gradient(135deg, var(--verde-escuro-bg), var(--verde-secundario));
+    border-bottom: var(--border-linha);
+    text-align: center;
+}
+
+.impacto-numeros .section-header {
+    color: var(--branco);
+}
+
+.impacto-numeros .section-header .tag {
+    color: var(--verde-claro);
+}
+
+.impacto-numeros .section-header h2 {
+    color: var(--branco);
+}
+
+.impacto-numeros .section-header p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.numeros-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0;
+    margin-top: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.numero-item {
+    padding: 2rem 1.5rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background 0.3s ease;
+}
+
+.numero-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.numero-item:last-child {
+    border-right: none;
+}
+
+.numero-valor {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--verde-claro);
+    font-family: var(--fonte-mono);
+    margin-bottom: 0.5rem;
+    line-height: 1;
+    display: block;
+}
+
+.numero-label {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+/* ============================================================
+   6. CALL TO ACTION
+   ============================================================ */
+.cta-jornada {
+    padding: var(--pad-section) var(--pad-lateral);
+    background: var(--bege-escuro);
+    text-align: center;
+    border-bottom: var(--border-linha);
+}
+
+.cta-jornada h2 {
+    font-size: var(--font-h3);
+    color: var(--verde-secundario);
+    margin-bottom: 1rem;
+}
+
+.cta-jornada p {
+    color: var(--verde-detalhe2);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    font-size: var(--font-p);
+    line-height: 1.6;
+}
+
+.cta-jornada .cta-botoes {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ============================================================
+   7. RESPONSIVIDADE
+   ============================================================ */
+
+/* Tablets e telas médias */
+@media (max-width: 1024px) {
+    .historia-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .linha-tempo {
+        padding-left: 1.5rem;
+    }
+
+    .marco {
+        padding-left: 1rem;
+    }
+
+    .marco::before {
+        left: -1.8rem;
+        width: 12px;
+        height: 12px;
+    }
+
+    .numeros-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .numero-item {
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .numero-item:nth-child(2) {
+        border-right: none;
+    }
+
+    .numero-item:nth-child(3) {
+        border-bottom: none;
+    }
+
+    .numero-item:nth-child(4) {
+        border-bottom: none;
+        border-right: none;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .about-hero {
+        min-height: 60vh;
+        padding: 4rem 1.5rem;
+    }
+
+    .about-hero h1 {
+        font-size: clamp(2rem, 6vw, 2.8rem);
+    }
+
+    .about-hero p {
+        font-size: 1rem;
+    }
+
+    .hero-scroll {
+        display: none;
+    }
+
+    .historia {
+        padding: var(--pad-section) 1.5rem;
+    }
+
+    .historia-texto h2 {
+        font-size: clamp(1.8rem, 5vw, 2.2rem);
+    }
+
+    .cards-valores {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .card-valor {
+        padding: 2rem 1.5rem;
+    }
+
+    .equipe-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .membro-card {
+        padding: 1.5rem;
+    }
+
+    .membro-card .avatar {
+        width: 80px;
+        height: 80px;
+    }
+
+    .membro-card .avatar i {
+        font-size: 2.5rem;
+    }
+
+    .numeros-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .numero-item {
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .numero-item:nth-child(2) {
+        border-right: none;
+    }
+
+    .numero-item:nth-child(3) {
+        border-bottom: none;
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .numero-item:nth-child(4) {
+        border-bottom: none;
+        border-right: none;
+    }
+
+    .numero-valor {
+        font-size: 2.5rem;
+    }
+
+    .cta-jornada h2 {
+        font-size: clamp(1.8rem, 5vw, 2.2rem);
+    }
+
+    .cta-jornada .cta-botoes {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cta-jornada .cta-botoes .btn-acao {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* Telas muito pequenas */
+@media (max-width: 480px) {
+    .about-hero {
+        min-height: 50vh;
+        padding: 3rem 1rem;
+    }
+
+    .about-hero h1 {
+        font-size: clamp(1.8rem, 5vw, 2.2rem);
+    }
+
+    .hero-tag {
+        font-size: 0.7rem;
+        padding: 0.3rem 1rem;
+        letter-spacing: 2px;
+    }
+
+    .equipe-grid {
+        grid-template-columns: 1fr;
+        max-width: 320px;
+        margin: 2rem auto 0;
+    }
+
+    .numeros-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .numero-item {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .numero-item:last-child {
+        border-bottom: none;
+    }
+
+    .numero-item:nth-child(2) {
+        border-right: none;
+    }
+
+    .numero-item:nth-child(3) {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        border-right: none;
+    }
+
+    .numero-valor {
+        font-size: 2rem;
+    }
+
+    .card-valor {
+        padding: 1.5rem 1rem;
+    }
+
+    .card-valor i {
+        font-size: 2.2rem;
+    }
+
+    .card-valor h3 {
+        font-size: 1.3rem;
+    }
+
+    .section-header h2 {
+        font-size: clamp(1.6rem, 5vw, 2rem);
+    }
+
+    .marco .ano {
+        font-size: 1.1rem;
+    }
+
+    .marco h4 {
+        font-size: 1rem;
+    }
+
+    .marco p {
+        font-size: 0.85rem;
+    }
+}
+
+/* ============================================================
+   8. ANIMAÇÕES ESPECÍFICAS
+   ============================================================ */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+

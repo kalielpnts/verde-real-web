@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós · Verde Real</title>
+    
+    <!-- FONTES E ÍCONES -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/pages/sobre.css">
+</head>
+<body onload="hidePreloader()">
+
+    <!-- ============================================================
+         PRELOADER
+         ============================================================ -->
+    <div id="preloader" class="preloader">
+        <div class="preloader__container">
+            <div class="ponto"></div>
+            <div class="ponto"></div>
+            <div class="ponto"></div>
+            <div class="ponto"></div>
+            <div class="troca-gasosa">
+                <p class="particula co2">CO2</p>
+                <p class="particula o2">O2</p>
+            </div>
+            <i class="fa-solid fa-seedling preloader__icone"></i>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         HEADER
+         ============================================================ -->
+    <header class="flex">
+        <div class="logo-box flex">
+            <h1><i class="fa-solid fa-seedling" style="color: var(--verde-primario);"></i> Verde Real</h1>
+        </div>
+        <nav class="nav-links flex">
+            <a href="index.html">Início</a>
+            <a href="selo.html">Selo Verde</a>
+            <a href="sobre.html" class="active">Sobre nós</a>
+            <a href="login.html" class="btn-login" id="btnLoginHeader">
+                <i class="fa-solid fa-user"></i> Entrar
+            </a>
+        </nav>
+    </header>
+
+    <!-- ============================================================
+         MAIN
+         ============================================================ -->
+    <main>
+
+        <!-- ============================================================
+             HERO SOBRE NÓS (CINEMÁTICO)
+             ============================================================ -->
+        <section class="about-hero">
+            <div class="hero-content">
+                <span class="hero-tag"><i class="fas fa-leaf"></i> QUEM SOMOS</span>
+                <h1>Transparência que <span>transforma</span><br>o mercado</h1>
+                <p>Somos uma plataforma independente que nasceu para combater o greenwashing e devolver o poder de escolha para consumidores conscientes.</p>
+            </div>
+            <div class="hero-scroll" onclick="document.getElementById('historia').scrollIntoView({behavior:'smooth'})">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SEÇÃO NOSSA HISTÓRIA (TIMELINE)
+             ============================================================ -->
+        <section class="historia" id="historia">
+            <div class="historia-grid">
+                <div class="historia-texto">
+                    <span class="tag"><i class="fas fa-tree"></i> NOSSA TRAJETÓRIA</span>
+                    <h2>Uma história de coragem e propósito</h2>
+                    <p>Nascemos em 2022, durante a ascensão do marketing verde enganoso, quando percebemos que consumidores estavam sendo enganados por promessas vazias. Unimos tecnologia, auditoria independente e uma comunidade engajada para criar o primeiro sistema de verificação ambiental colaborativo da América Latina.</p>
+                    <p>Hoje, somos referência em transparência corporativa, com mais de <strong id="totalDenuncias">2.000</strong> denúncias analisadas e centenas de empresas certificadas com o Selo Verde Real — a garantia de que o discurso sustentável é, de fato, uma prática concreta.</p>
+                </div>
+                <div class="linha-tempo">
+                    <div class="marco">
+                        <span class="ano">2022</span>
+                        <h4>🌱 Fundação</h4>
+                        <p>Fundação da Verde Real com a primeira plataforma de denúncias colaborativas.</p>
+                    </div>
+                    <div class="marco">
+                        <span class="ano">2023</span>
+                        <h4>🏅 Primeiro Selo</h4>
+                        <p>Lançamento do Selo Verde Real e primeira auditoria independente realizada.</p>
+                    </div>
+                    <div class="marco">
+                        <span class="ano">2024</span>
+                        <h4>📊 Expansão</h4>
+                        <p>Mais de 1.500 denúncias processadas e parceria com 3 universidades para pesquisa em sustentabilidade.</p>
+                    </div>
+                    <div class="marco">
+                        <span class="ano">2025</span>
+                        <h4>🌎 Reconhecimento</h4>
+                        <p>Expansão internacional e reconhecimento como principal ferramenta anti-greenwashing do Brasil.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SEÇÃO MISSÃO, VISÃO, VALORES
+             ============================================================ -->
+        <section class="valores">
+            <div class="section-header">
+                <span class="tag"><i class="fas fa-compass"></i> NOSSO PROPÓSITO</span>
+                <h2>Missão, Visão e Valores</h2>
+                <p>Direcionamos cada ação com clareza e compromisso com a verdade ambiental.</p>
+            </div>
+            <div class="cards-valores">
+                <div class="card-valor">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Missão</h3>
+                    <p>Garantir que consumidores tenham acesso à verdade sobre o impacto ambiental das empresas, combatendo o greenwashing com tecnologia e auditoria rigorosa.</p>
+                </div>
+                <div class="card-valor">
+                    <i class="fas fa-eye"></i>
+                    <h3>Visão</h3>
+                    <p>Ser o maior ecossistema de verificação de sustentabilidade do mundo, onde marcas autênticas são reconhecidas e práticas enganosas são expostas.</p>
+                </div>
+                <div class="card-valor">
+                    <i class="fas fa-heart"></i>
+                    <h3>Valores</h3>
+                    <p>Transparência radical, independência técnica, rigor científico, empoderamento do consumidor e compromisso com o futuro do planeta.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SEÇÃO EQUIPE
+             ============================================================ -->
+        <section class="equipe">
+            <div class="section-header">
+                <span class="tag"><i class="fas fa-users"></i> PESSOAS POR TRÁS DA MISSÃO</span>
+                <h2>Quem faz a diferença</h2>
+                <p>Especialistas em sustentabilidade, tecnologia e auditoria ambiental.</p>
+            </div>
+            <div class="equipe-grid">
+                <div class="membro-card">
+                    <div class="avatar"><i class="fas fa-user-circle"></i></div>
+                    <h4>Suellen Ferreira</h4>
+                    <span class="cargo">CEO & Co-fundadora</span>
+                    <p class="bio">Doutora em Ciências Ambientais, atua há 15 anos na validação de práticas ESG e combate à maquiagem verde.</p>
+                </div>
+                <div class="membro-card">
+                    <div class="avatar"><i class="fas fa-user-circle"></i></div>
+                    <h4>Ayslan Ramos</h4>
+                    <span class="cargo">CTO & Co-fundador</span>
+                    <p class="bio">Engenheiro de software e especialista em IA, lidera o desenvolvimento da plataforma de auditoria automatizada.</p>
+                </div>
+                <div class="membro-card">
+                    <div class="avatar"><i class="fas fa-user-circle"></i></div>
+                    <h4>Júlia Cristina</h4>
+                    <span class="cargo">Diretora de Auditoria</span>
+                    <p class="bio">Auditora líder com certificação em sustentabilidade, responsável pela equipe de verificações in loco.</p>
+                </div>
+                <div class="membro-card">
+                    <div class="avatar"><i class="fas fa-user-circle"></i></div>
+                    <h4>Kaliel Pontes</h4>
+                    <span class="cargo">Head de Comunidade</span>
+                    <p class="bio">Jornalista e ativista ambiental, conecta consumidores e organizações para fortalecer a rede de vigilância.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SEÇÃO IMPACTO EM NÚMEROS
+             ============================================================ -->
+        <section class="impacto-numeros">
+            <div class="section-header">
+                <span class="tag"><i class="fas fa-chart-line"></i> NOSSO IMPACTO</span>
+                <h2>O que já conquistamos juntos</h2>
+                <p>Números que refletem a força da nossa comunidade e o poder da transparência.</p>
+            </div>
+            <div class="numeros-grid">
+                <div class="numero-item">
+                    <span class="numero-valor" id="contadorDenuncias">0</span>
+                    <span class="numero-label">Denúncias processadas</span>
+                </div>
+                <div class="numero-item">
+                    <span class="numero-valor" id="contadorEmpresas">0</span>
+                    <span class="numero-label">Empresas auditadas</span>
+                </div>
+                <div class="numero-item">
+                    <span class="numero-valor" id="contadorSelos">0</span>
+                    <span class="numero-label">Selos ativos</span>
+                </div>
+                <div class="numero-item">
+                    <span class="numero-valor" id="contadorComunidade">0</span>
+                    <span class="numero-label">Membros ativos</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SEÇÃO CTA FINAL
+             ============================================================ -->
+        <section class="cta-jornada">
+            <h2>Faça parte dessa transformação</h2>
+            <p>Seja como consumidor consciente ou como empresa que quer provar sua sustentabilidade real — juntos podemos construir um mercado mais honesto.</p>
+            <div class="cta-botoes">
+                <a href="login.html" class="btn-acao btn--escuro">
+                    <i class="fas fa-user-plus"></i> Quero ser fiscal
+                </a>
+                <a href="selo.html" class="btn-acao btn--vazado">
+                    <i class="fas fa-building"></i> Sou empresa
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================================
+         FOOTER
+         ============================================================ -->
+    <footer class="flex">
+        <div class="footer__conteudo flex">
+            <div class="footer__coluna flex">
+                <h1 style="color: var(--verde-detalhe); margin-bottom: 1rem;">
+                    <i class="fa-solid fa-seedling" style="color: var(--verde-primario);"></i> Verde Real
+                </h1>
+                <p style="color: var(--verde-detalhe); font-size: clamp(0.85rem, 1.5vw, 0.95rem); max-width: 300px;">
+                    A plataforma definitiva contra o greenwashing. Exigindo transparência corporativa real.
+                </p>
+            </div>
+            <div class="footer__coluna flex">
+                <h3 class="footer__titulo">Navegação</h3>
+                <ul class="flex">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                    <li><a href="feed-cliente.html">Denúncias</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer__coluna flex">
+                <h3 class="footer__titulo">Empresas</h3>
+                <ul class="flex">
+                    <li><a href="selo.html">Selo Verde</a></li>
+                    <li><a href="#">Auditorias</a></li>
+                    <li><a href="#">Suporte</a></li>
+                </ul>
+            </div>
+            <div class="footer__coluna flex">
+                <h3 class="footer__titulo">Contato</h3>
+                <div style="color: var(--verde-claro); font-size: clamp(0.85rem, 1.2vw, 0.9rem); line-height: 2;">
+                    <p style="display: flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-envelope"></i> contato@verdereal.com.br
+                    </p>
+                    <p style="display: flex; align-items: center; gap: 8px;">
+                        <i class="fab fa-whatsapp"></i> (19) 99328-0705
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="footer__copyright flex">
+            <p>&copy; 2026 Verde Real. Todos os direitos reservados. Projeto fictício para trabalho de conclusão de curso.</p>
+        </div>
+    </footer>
+
+    <!-- ============================================================
+         SCRIPTS - ORDEM CORRETA
+         ============================================================ -->
+
+    <!-- 1. Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- 2. Configuração do Supabase -->
+    <script src="../js/supabase/supabase-config.js"></script>
+
+    <!-- 3. Banco de dados (operações com Supabase) -->
+    <script src="../js/supabase/db-supabase.js"></script>
+
+    <!-- 4. Utilitários e funções globais -->
+    <script src="../js/utils.js"></script>
+    <script src="../js/supabase/main-supabase.js"></script>
+
+    <!-- ============================================================
+         SCRIPT ADICIONAL DO SOBRE
+         ============================================================ -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('📖 Página Sobre Nós carregada!');
+
+            // ============================================================
+            // SCROLL REVEAL - MARCOS DA TIMELINE
+            // ============================================================
+            const marcos = document.querySelectorAll('.marco');
+            const observerMarcos = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visivel');
+                    }
+                });
+            }, { threshold: 0.3 });
+            
+            marcos.forEach(m => observerMarcos.observe(m));
+
+            // ============================================================
+            // SCROLL REVEAL - CARDS DE VALORES E EQUIPE
+            // ============================================================
+            const cardsReveal = document.querySelectorAll('.card-valor, .membro-card');
+            const observerCards = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visivel');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            cardsReveal.forEach(card => observerCards.observe(card));
+
+            // ============================================================
+            // CONTADORES ANIMADOS
+            // ============================================================
+            function iniciarContadores() {
+                const contadores = [
+                    { el: document.getElementById('contadorDenuncias'), alvo: 2847, atual: 0 },
+                    { el: document.getElementById('contadorEmpresas'), alvo: 342, atual: 0 },
+                    { el: document.getElementById('contadorSelos'), alvo: 187, atual: 0 },
+                    { el: document.getElementById('contadorComunidade'), alvo: 15420, atual: 0 }
+                ];
+
+                let continuar = true;
+
+                function animar() {
+                    let algumAtivo = false;
+                    contadores.forEach(c => {
+                        if (c.atual < c.alvo) {
+                            algumAtivo = true;
+                            c.atual += Math.ceil((c.alvo - c.atual) / 20);
+                            if (c.atual > c.alvo) c.atual = c.alvo;
+                            if (c.el) c.el.innerText = c.atual.toLocaleString('pt-BR');
+                        }
+                    });
+                    if (algumAtivo) {
+                        setTimeout(animar, 35);
+                    }
+                }
+
+                animar();
+            }
+
+            // Observar quando a seção de números entrar na tela
+            const observerNumeros = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    iniciarContadores();
+                    observerNumeros.disconnect();
+                }
+            }, { threshold: 0.3 });
+            
+            const secaoNumeros = document.querySelector('.impacto-numeros');
+            if (secaoNumeros) observerNumeros.observe(secaoNumeros);
+
+            // ============================================================
+            // CARREGAR DADOS REAIS DO SUPABASE
+            // ============================================================
+            async function carregarDadosReais() {
+                try {
+                    if (typeof supabase === 'undefined') {
+                        console.warn('Supabase não disponível');
+                        return;
+                    }
+
+                    // Buscar total de denúncias (publicações do tipo 'denuncia')
+                    const { count: totalDenuncias, error: err1 } = await supabase
+                        .from('publicacoes')
+                        .select('*', { count: 'exact', head: true })
+                        .eq('tipo', 'denuncia')
+                        .eq('status', 'ativo');
+
+                    // Buscar total de empresas auditadas (usuários do tipo 'empresa' ou 'empresa_selo')
+                    const { count: totalEmpresas, error: err2 } = await supabase
+                        .from('usuarios')
+                        .select('*', { count: 'exact', head: true })
+                        .in('tipo', ['empresa', 'empresa_selo']);
+
+                    // Buscar total de selos ativos
+                    const { count: totalSelos, error: err3 } = await supabase
+                        .from('selos')
+                        .select('*', { count: 'exact', head: true })
+                        .eq('status', 'ativo');
+
+                    // Atualizar elementos
+                    const denunciasEl = document.getElementById('totalDenuncias');
+                    if (denunciasEl && totalDenuncias !== null) {
+                        denunciasEl.textContent = totalDenuncias.toLocaleString('pt-BR');
+                    }
+
+                    // Atualizar contadores se ainda não foram animados
+                    // (os contadores já estão animando, mas podemos atualizar os valores finais)
+                    const contadorDenuncias = document.getElementById('contadorDenuncias');
+                    const contadorEmpresas = document.getElementById('contadorEmpresas');
+                    const contadorSelos = document.getElementById('contadorSelos');
+
+                    if (contadorDenuncias && totalDenuncias !== null) {
+                        contadorDenuncias.textContent = totalDenuncias.toLocaleString('pt-BR');
+                    }
+                    if (contadorEmpresas && totalEmpresas !== null) {
+                        contadorEmpresas.textContent = totalEmpresas.toLocaleString('pt-BR');
+                    }
+                    if (contadorSelos && totalSelos !== null) {
+                        contadorSelos.textContent = totalSelos.toLocaleString('pt-BR');
+                    }
+
+                    console.log('✅ Dados do Supabase carregados!');
+                    console.log(`📊 Denúncias: ${totalDenuncias}, Empresas: ${totalEmpresas}, Selos: ${totalSelos}`);
+
+                } catch (error) {
+                    console.error('Erro ao carregar dados do Supabase:', error);
+                }
+            }
+
+            // Carregar dados reais após alguns segundos
+            setTimeout(carregarDadosReais, 1500);
+
+            // ============================================================
+            // VERIFICAR SE USUÁRIO ESTÁ LOGADO (HEADER)
+            // ============================================================
+            const btnLoginHeader = document.getElementById('btnLoginHeader');
+            if (btnLoginHeader && typeof auth !== 'undefined' && auth.isLogado()) {
+                const user = auth.getUsuarioLogado();
+                btnLoginHeader.innerHTML = `<i class="fa-solid fa-user"></i> ${user.nome}`;
+                btnLoginHeader.href = user.tipo === 'empresa' || user.tipo === 'empresa_selo' 
+                    ? 'feed-empresa.html' 
+                    : 'feed-cliente.html';
+            }
+
+            console.log('✅ Página Sobre Nós pronta!');
+        });
+
+        // ============================================================
+        // HIDE PRELOADER
+        // ============================================================
+        function hidePreloader() {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                preloader.classList.add('preloader--escondido');
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 500);
+            }
+        }
+    </script>
+
+</body>
+</html>
+

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selo Verde Real · Certificação Autêntica</title>
+    
+    <!-- FONTES E ÍCONES -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/pages/selo.css">
+</head>
+<body onload="hidePreloader()">
+
+    <!-- ============================================================
+         PRELOADER
+         ============================================================ -->
+    <div id="preloader" class="preloader">
+        <div class="preloader__container">
+            <div class="ponto"></div>
+            <div class="ponto"></div>
+            <div class="ponto"></div>
+            <div class="ponto"></div>
+            <div class="troca-gasosa">
+                <p class="particula co2">CO2</p>
+                <p class="particula o2">O2</p>
+            </div>
+            <i class="fa-solid fa-seedling preloader__icone"></i>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         HEADER
+         ============================================================ -->
+    <header class="flex">
+        <div class="logo-box flex">
+            <h1><i class="fa-solid fa-seedling" style="color: var(--verde-primario);"></i> Verde Real</h1>
+        </div>
+        <nav class="nav-links flex">
+            <a href="index.html">Início</a>
+            <a href="selo.html" class="active">Selo Verde</a>
+            <a href="sobre.html">Sobre nós</a>
+            <a href="login.html" class="btn-login" id="btnLoginHeader">
+                <i class="fa-solid fa-user"></i> Entrar
+            </a>
+        </nav>
+    </header>
+
+    <!-- ============================================================
+         MAIN
+         ============================================================ -->
+    <main>
+
+        <!-- ============================================================
+             SEÇÃO HERO DO SELO
+             ============================================================ -->
+        <section class="selo-hero">
+            <div class="selo-hero__conteudo">
+                <span class="selo-badge"><i class="fas fa-certificate"></i> CERTIFICAÇÃO OFICIAL</span>
+                <h1>Selo <span>Verde Real</span><br>Autenticidade Comprovada</h1>
+                <p>Mais que um selo, um compromisso auditado por especialistas independentes. <br>Separamos o impacto real das promessas vazias.</p>
+                <div class="hero__botoes flex">
+                    <a href="login.html" class="btn-acao btn--escuro">
+                        <i class="fas fa-check-circle"></i> Solicitar Selo
+                    </a>
+                    <a href="#certificadas" class="btn-acao btn--vazado">
+                        <i class="fas fa-search"></i> Ver Certificadas
+                    </a>
+                </div>
+            </div>
+            <div class="selo-visual">
+                <div class="selo-card-3d">
+                    <i class="fas fa-leaf"></i>
+                    <h3>VR</h3>
+                    <p>VERDE REAL</p>
+                    <div class="selo-shield">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             MARQUEE
+             ============================================================ -->
+        <div class="marquee">
+            &nbsp;• RADAR ATIVADO • CONSUMIDOR NO CONTROLE • AUDITORIA RIGOROSA • DENUNCIE O GREENWASHING • DADOS ABERTOS • 
+            RADAR ATIVADO • CONSUMIDOR NO CONTROLE • AUDITORIA RIGOROSA • DENUNCIE O GREENWASHING • DADOS ABERTOS
+        </div>
+
+        <!-- ============================================================
+             SEÇÃO CREDENCIAIS (PILARES DO SELO)
+             ============================================================ -->
+        <section class="credenciais">
+            <div class="section-header">
+                <span class="tag"><i class="fas fa-gem"></i> POR QUE CONFIAR</span>
+                <h2>Os 4 Pilares da Certificação Autêntica</h2>
+                <p>Nosso selo é comprovado através de rigorosa auditoria em toda cadeia produtiva. Uma assinatura mensal para viabilizar a sua empresa!</p>
+            </div>
+            <div class="grid-credenciais">
+                <div class="card-vidro">
+                    <i class="fas fa-file-signature"></i>
+                    <h3>Evidências Públicas</h3>
+                    <p>Relatórios ESG auditados, licenças e dados abertos para qualquer consumidor verificar.</p>
+                </div>
+                <div class="card-vidro">
+                    <i class="fas fa-microscope"></i>
+                    <h3>Auditoria In Loco</h3>
+                    <p>Equipe técnica visita instalações, verifica processos e entrevista colaboradores.</p>
+                </div>
+                <div class="card-vidro">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Monitoramento Contínuo</h3>
+                    <p>Renovação anual com reavaliação surpresa. Selo dinâmico que exige constância.</p>
+                </div>
+                <div class="card-vidro">
+                    <i class="fas fa-users"></i>
+                    <h3>Comitê de Transparência</h3>
+                    <p>Conselho formado por especialistas, ONGs e representantes da sociedade civil.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SEÇÃO PROCESSO (TIMELINE)
+             ============================================================ -->
+        <section class="processo-selo">
+            <div class="section-header">
+                <span class="tag"><i class="fas fa-road"></i> JORNADA DA CERTIFICAÇÃO</span>
+                <h2>Do Cadastro ao Selo Dourado</h2>
+                <p>Um caminho desenhado para garantir que apenas empresas com práticas reais sejam reconhecidas.</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                        <span class="step-number">1</span>
+                    </div>
+                    <h4>Cadastro + Documentos</h4>
+                    <p>Enviamos formulário detalhado com políticas ambientais, certificações atuais e dados de impacto.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-chalkboard-user"></i>
+                        <span class="step-number">2</span>
+                    </div>
+                    <h4>Análise Técnica</h4>
+                    <p>Nossa equipe valida cada evidência, cruza dados públicos e aplica metodologia proprietária.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-hard-hat"></i>
+                        <span class="step-number">3</span>
+                    </div>
+                    <h4>Visita de Auditoria</h4>
+                    <p>Auditores credenciados realizam inspeção in loco sem aviso prévio para máxima transparência.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-medal"></i>
+                        <span class="step-number">4</span>
+                    </div>
+                    <h4>Selo + Monitoramento</h4>
+                    <p>Empresa aprovada recebe o Selo VR, metas de sustentabilidade + painel público e passa a ser monitorada anualmente.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SEÇÃO BENEFÍCIOS
+             ============================================================ -->
+        <section class="beneficios">
+            <div>
+                <div class="section-header" style="text-align: left; margin:0 0 2rem 0;">
+                    <span class="tag"><i class="fas fa-chart-simple"></i> VANTAGENS ESTRATÉGICAS</span>
+                    <h2 style="margin-bottom:0.5rem;">Por que sua empresa precisa do Selo VR?</h2>
+                </div>
+                <ul class="beneficios-lista">
+                    <li>
+                        <i class="fas fa-chart-line"></i>
+                        <div>
+                            <strong>Aumento de conversão</strong>
+                            <span>Consumidores pagam até 25% mais por produtos com selos auditados.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-shield"></i>
+                        <div>
+                            <strong>Proteção contra greenwashing</strong>
+                            <span>Blinda sua marca contra acusações de falsa sustentabilidade.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-globe"></i>
+                        <div>
+                            <strong>Acesso a mercados exigentes</strong>
+                            <span>Varejistas e governos priorizam empresas com certificação de terceira parte.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-hand-holding-heart"></i>
+                        <div>
+                            <strong>Reputação inquebrantável</strong>
+                            <span>Destaque em nossa plataforma para mais de 500k consumidores mensais.</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="beneficios-visual">
+                <i class="fa-solid fa-chart-column"></i>
+                <h3>Empresas com Selo VR</h3>
+                <div class="contador-numero" id="contadorImpacto">0</div>
+                <p>empresas já certificadas<br>e crescendo</p>
+                <div class="destaque" id="percentualCrescimento">+38%</div>
+                <p class="destaque-label">crescimento médio em vendas após selo</p>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SEÇÃO EMPRESAS CERTIFICADAS
+             ============================================================ -->
+        <section class="certificadas" id="certificadas">
+            <div class="section-header">
+                <span class="tag"><i class="fas fa-building"></i> QUEM JÁ CONQUISTOU</span>
+                <h2>Empresas que lideram com transparência</h2>
+            </div>
+            <div class="carrossel-marcas">
+                <div class="carrossel-inner" id="carrosselInner">
+                    <!-- Itens serão duplicados via JavaScript -->
+                    <div class="marca-item"><i class="fas fa-check-circle" style="color: var(--verde-primario);"></i> Natus Brasil</div>
+                    <div class="marca-item"><i class="fas fa-check-circle" style="color: var(--verde-primario);"></i> EcoPack Sustentável</div>
+                    <div class="marca-item"><i class="fas fa-check-circle" style="color: var(--verde-primario);"></i> Floresta Viva Cosméticos</div>
+                    <div class="marca-item"><i class="fas fa-check-circle" style="color: var(--verde-primario);"></i> Bioenergia Solar</div>
+                    <div class="marca-item"><i class="fas fa-check-circle" style="color: var(--verde-primario);"></i> Água Pura Filtros</div>
+                    <div class="marca-item"><i class="fas fa-check-circle" style="color: var(--verde-primario);"></i> Refloresta Agro</div>
+                    <div class="marca-item"><i class="fas fa-check-circle" style="color: var(--verde-primario);"></i> Moda Ética Co.</div>
+                    <div class="marca-item"><i class="fas fa-check-circle" style="color: var(--verde-primario);"></i> Green Tech Brasil</div>
+                    <div class="marca-item"><i class="fas fa-check-circle" style="color: var(--verde-primario);"></i> EcoVita Sustentável</div>
+                    <div class="marca-item"><i class="fas fa-check-circle" style="color: var(--verde-primario);"></i> Mata Atlântica Papéis</div>
+                </div>
+            </div>
+            <div class="carrossel-marcas" style="margin-top: -1rem;">
+                <div class="carrossel-inner">
+                    <div class="marca-item"><i class="fas fa-certificate" style="color: var(--dourado);"></i> +150 empresas em processo</div>
+                    <div class="marca-item"><i class="fas fa-certificate" style="color: var(--dourado);"></i> 32 setores distintos</div>
+                    <div class="marca-item"><i class="fas fa-certificate" style="color: var(--dourado);"></i> 98% de renovação</div>
+                    <div class="marca-item"><i class="fas fa-certificate" style="color: var(--dourado);"></i> Nota média: 9.6/10</div>
+                    <div class="marca-item"><i class="fas fa-certificate" style="color: var(--dourado);"></i> +150 empresas em processo</div>
+                    <div class="marca-item"><i class="fas fa-certificate" style="color: var(--dourado);"></i> 32 setores distintos</div>
+                    <div class="marca-item"><i class="fas fa-certificate" style="color: var(--dourado);"></i> 98% de renovação</div>
+                    <div class="marca-item"><i class="fas fa-certificate" style="color: var(--dourado);"></i> Nota média: 9.6/10</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             SEÇÃO CTA FINAL
+             ============================================================ -->
+        <section class="cta-selo">
+            <h2>Pronto para se destacar com autenticidade?</h2>
+            <p>Junte-se às empresas que estão transformando o mercado com práticas reais e conquiste a confiança definitiva dos seus clientes.</p>
+            <a href="login.html">
+                <button class="btn-grande">
+                    <i class="fas fa-crown"></i> Solicitar Avaliação do Selo
+                </button>
+            </a>
+        </section>
+
+    </main>
+
+    <!-- ============================================================
+         FOOTER
+         ============================================================ -->
+    <footer class="flex">
+        <div class="footer__conteudo flex">
+            <div class="footer__coluna flex">
+                <h1 style="color: var(--verde-detalhe); margin-bottom: 1rem;">
+                    <i class="fa-solid fa-seedling" style="color: var(--verde-primario);"></i> Verde Real
+                </h1>
+                <p style="color: var(--verde-detalhe); font-size: clamp(0.85rem, 1.5vw, 0.95rem); max-width: 300px;">
+                    A plataforma definitiva contra o greenwashing. Exigindo transparência corporativa real.
+                </p>
+            </div>
+            <div class="footer__coluna flex">
+                <h3 class="footer__titulo">Navegação</h3>
+                <ul class="flex">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                    <li><a href="feed-cliente.html">Denúncias</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer__coluna flex">
+                <h3 class="footer__titulo">Empresas</h3>
+                <ul class="flex">
+                    <li><a href="selo.html">Selo Verde</a></li>
+                    <li><a href="#">Auditorias</a></li>
+                    <li><a href="#">Suporte</a></li>
+                </ul>
+            </div>
+            <div class="footer__coluna flex">
+                <h3 class="footer__titulo">Contato</h3>
+                <div style="color: var(--verde-claro); font-size: clamp(0.85rem, 1.2vw, 0.9rem); line-height: 2;">
+                    <p style="display: flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-envelope"></i> contato@verdereal.com.br
+                    </p>
+                    <p style="display: flex; align-items: center; gap: 8px;">
+                        <i class="fab fa-whatsapp"></i> (19) 99328-0705
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="footer__copyright flex">
+            <p>&copy; 2026 Verde Real. Todos os direitos reservados. Projeto fictício para trabalho de conclusão de curso.</p>
+        </div>
+    </footer>
+
+    <!-- ============================================================
+         SCRIPTS - ORDEM CORRETA
+         ============================================================ -->
+
+    <!-- 1. Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- 2. Configuração do Supabase -->
+    <script src="../js/supabase/supabase-config.js"></script>
+
+    <!-- 3. Banco de dados (operações com Supabase) -->
+    <script src="../js/supabase/db-supabase.js"></script>
+
+    <!-- 4. Autenticação -->
+    <script src="../js/supabase/auth-supabase.js"></script>
+
+    <!-- 5. Selo (operações com Supabase) -->
+    <script src="../js/supabase/selo-supabase.js"></script>
+
+    <!-- 6. Utilitários e funções globais -->
+    <script src="../js/utils.js"></script>
+    <script src="../js/supabase/main-supabase.js"></script>
+
+    <!-- ============================================================
+         SCRIPT ADICIONAL DO SELO
+         ============================================================ -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🏅 Página do Selo carregada!');
+
+            // ============================================================
+            // CONTADOR ANIMADO
+            // ============================================================
+            let contador = 0;
+            const contadorEl = document.getElementById('contadorImpacto');
+            const alvoContador = 284;
+
+            function animarContador() {
+                if (contador < alvoContador) {
+                    contador += Math.ceil((alvoContador - contador) / 25);
+                    if (contadorEl) contadorEl.innerText = contador;
+                    setTimeout(animarContador, 45);
+                } else {
+                    if (contadorEl) contadorEl.innerText = alvoContador;
+                }
+            }
+
+            // Observar quando a seção de benefícios entrar na tela
+            const observer = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    animarContador();
+                    observer.disconnect();
+                }
+            }, { threshold: 0.5 });
+
+            const beneficioSection = document.querySelector('.beneficios-visual');
+            if (beneficioSection) {
+                observer.observe(beneficioSection);
+            }
+
+            // ============================================================
+            // CARREGAR NÚMERO REAL DE EMPRESAS COM SELO DO SUPABASE
+            // ============================================================
+            async function carregarEmpresasComSelo() {
+                try {
+                    if (typeof supabase === 'undefined') {
+                        console.warn('Supabase não disponível');
+                        return;
+                    }
+
+                    const { data, error, count } = await supabase
+                        .from('selos')
+                        .select('*', { count: 'exact', head: true })
+                        .eq('status', 'ativo');
+
+                    if (!error && count !== null) {
+                        // Atualizar o contador com o valor real
+                        const contadorReal = document.getElementById('contadorImpacto');
+                        if (contadorReal) {
+                            contadorReal.textContent = count;
+                        }
+                    }
+                } catch (error) {
+                    console.error('Erro ao carregar empresas com selo:', error);
+                }
+            }
+
+            // Carregar dados reais após alguns segundos
+            setTimeout(carregarEmpresasComSelo, 2000);
+
+            // ============================================================
+            // REVELAÇÃO DE ELEMENTOS AO ROLAR (SCROLL REVEAL)
+            // ============================================================
+            const elementosRevelar = document.querySelectorAll(
+                '.card-vidro, .timeline-item, .beneficios-lista li'
+            );
+
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visivel');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            elementosRevelar.forEach(el => {
+                el.classList.add('visivel');
+                // Remove a classe para que a animação aconteça quando entrar na tela
+                // Mas mantemos visível por padrão para quem tem animações desativadas
+            });
+
+            // ============================================================
+            // CARROSSEL DE MARCAS - DUPLICAR PARA INFINITO
+            // ============================================================
+            const carrosseis = document.querySelectorAll('.carrossel-inner');
+            carrosseis.forEach(carrossel => {
+                const items = carrossel.querySelectorAll('.marca-item');
+                items.forEach(item => {
+                    const clone = item.cloneNode(true);
+                    carrossel.appendChild(clone);
+                });
+            });
+
+            // ============================================================
+            // VERIFICAR SE USUÁRIO ESTÁ LOGADO (HEADER)
+            // ============================================================
+            const btnLoginHeader = document.getElementById('btnLoginHeader');
+            if (btnLoginHeader && typeof auth !== 'undefined' && auth.isLogado()) {
+                const user = auth.getUsuarioLogado();
+                btnLoginHeader.innerHTML = `<i class="fa-solid fa-user"></i> ${user.nome}`;
+                btnLoginHeader.href = user.tipo === 'empresa' || user.tipo === 'empresa_selo' 
+                    ? 'feed-empresa.html' 
+                    : 'feed-cliente.html';
+            }
+
+            // ============================================================
+            // HOVER NO SELO 3D - EFEITO DE ROTAÇÃO
+            // ============================================================
+            const selo3d = document.querySelector('.selo-card-3d');
+            if (selo3d) {
+                selo3d.addEventListener('mousemove', function(e) {
+                    const rect = this.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = (y - centerY) / 20;
+                    const rotateY = (centerX - x) / 20;
+                    this.style.transform = `perspective(500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+                });
+
+                selo3d.addEventListener('mouseleave', function() {
+                    this.style.transform = 'perspective(500px) rotateX(0deg) rotateY(0deg) scale(1)';
+                });
+            }
+
+            console.log('✅ Página do Selo pronta!');
+        });
+
+        // ============================================================
+        // HIDE PRELOADER
+        // ============================================================
+        function hidePreloader() {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                preloader.classList.add('preloader--escondido');
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 500);
+            }
+        }
+    </script>
+
+</body>
+</html>
+
