@@ -207,7 +207,7 @@ class FeedManager {
                             </div>
                             <div class="post-empresa-info">
                                 <span>${data}</span>
-                                ${post.empresa_alvo ? `<span onclick="event.stopPropagation(); window.location.href='perfil-empresa.html?id=${post.empresa_id}'" style="cursor:pointer;text-decoration:underline;"><i class="fas fa-building"></i> ${post.empresa_alvo}</span>` : ''}
+                                ${post.empresa_alvo ? `<span onclick="event.stopPropagation(); window.location.href='perfil.html?id=${post.empresa_id}'" style="cursor:pointer;text-decoration:underline;"><i class="fas fa-building"></i> ${post.empresa_alvo}</span>` : ''}
                             </div>
                         </div>
                     </div>
@@ -708,22 +708,7 @@ class FeedManager {
     // ABRIR PERFIL DO USUÁRIO
     // ============================================================
     abrirPerfil(usuarioId) {
-        const usuario = this.posts.find(p => p.usuario_id === usuarioId);
-        if (!usuario) {
-            alert('Usuário não encontrado.');
-            return;
-        }
-
-        const postsDoUsuario = this.posts.filter(p => p.usuario_id === usuarioId);
-        const totalLikes = postsDoUsuario.reduce((acc, p) => acc + (p.curtidas || 0), 0);
-
-        alert(`
-            📋 Perfil do Usuário
-            
-            Nome: ${usuario.usuario_nome}
-            Publicações: ${postsDoUsuario.length}
-            Curtidas recebidas: ${totalLikes}
-        `);
+        window.location.href = `perfil.html?id=${usuarioId}`;
     }
 
     // ============================================================
