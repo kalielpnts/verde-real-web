@@ -230,12 +230,23 @@
     window.removerSinoNotificacoes = remover;
 
     document.addEventListener('DOMContentLoaded', function () {
-        function tentarIniciar() {
-            if (typeof auth !== 'undefined' && window.notificacoesService && window.notificacoesService.inicializado) {
-                iniciar();
-            } else {
+        async function tentarIniciar() {
+            const pronto =
+                typeof auth !== 'undefined' && window.notificacoesService && window.notificacoesService.inicializado;
+
+            if (!pronto) {
                 setTimeout(tentarIniciar, 500);
+                return;
             }
+
+            // Espera a restauração da sessão terminar (igual o feed.js já faz) —
+            // sem isso, isLogado() responde "false" cedo demais mesmo com o
+            // usuário logado de verdade, e o sino nunca chega a ser criado.
+            if (auth.initPromise) {
+                await auth.initPromise;
+            }
+
+            iniciar();
         }
         setTimeout(tentarIniciar, 700);
     });
