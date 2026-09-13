@@ -167,7 +167,7 @@ class FeedManager {
     // ============================================================
     // RENDERIZAR UM POST
     // ============================================================
-        renderizarPost(post) {
+    renderizarPost(post) {
         const data = new Date(post.data).toLocaleDateString('pt-BR', {
             day: '2-digit',
             month: '2-digit',
@@ -231,6 +231,8 @@ class FeedManager {
                     <p>${post.descricao}</p>
                 </div>
 
+                ${this.renderizarStatus(post)}
+
                 ${post.midia_url ? `<img src="${post.midia_url}" class="post-imagem" alt="Prova anexada">` : ''}
 
                 <div class="likes-count">
@@ -259,6 +261,31 @@ class FeedManager {
                         <button class="add-comment" data-id="${post.id}">Enviar</button>
                     </div>
                 </div>
+            </div>
+        `;
+    }
+
+    renderizarStatus(post) {
+        if (post.status_denuncia === 'rejeitada') {
+            return `<div class="status-denuncia"><span class="status-label" style="color:#c62828;">DENÚNCIA REJEITADA</span></div>`;
+        }
+
+        const etapas = [
+            { chave: 'recebida', label: 'RECEBIDA' },
+            { chave: 'em_analise', label: 'EM ANÁLISE' },
+            { chave: 'resolvida', label: 'RESOLVIDA' },
+        ];
+        const indiceAtual = etapas.findIndex((e) => e.chave === post.status_denuncia);
+
+        return `
+            <div class="status-denuncia">
+                ${etapas.map((etapa, i) => `
+                    <div class="status-etapa">
+                        <span class="status-bolinha ${i <= indiceAtual ? 'status-ativa' : ''}"></span>
+                        <span class="status-label ${i <= indiceAtual ? 'status-ativa' : ''}">${etapa.label}</span>
+                        ${i < etapas.length - 1 ? '<span class="status-linha"></span>' : ''}
+                    </div>
+                `).join('')}
             </div>
         `;
     }

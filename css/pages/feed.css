@@ -1239,3 +1239,50 @@
     border: var(--border-linha);
     margin-bottom: 0.75rem;
 }
+
+.status-denuncia {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0 0.75rem;
+}
+
+.status-etapa {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    position: relative;
+}
+
+.status-bolinha {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid var(--verde-detalhe2);
+    background: transparent;
+    flex-shrink: 0;
+}
+
+.status-bolinha.status-ativa {
+    background: var(--verde-primario);
+    border-color: var(--verde-primario);
+}
+
+.status-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.05em;
+    color: var(--verde-detalhe2);
+    margin-left: 0.35rem;
+    white-space: nowrap;
+}
+
+.status-label.status-ativa {
+    color: var(--verde-primario);
+    font-weight: 600;
+}
+
+.status-linha {
+    flex: 1;
+    height: 2px;
+    background: var(--verde-detalhe2);
+    margin: 0 0.5rem;
+}
