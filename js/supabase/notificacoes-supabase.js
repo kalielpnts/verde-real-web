@@ -28,11 +28,12 @@ class NotificacoesService {
     mapearNotificacao(linha) {
         return {
             id: linha.id,
-            tipo: linha.tipo, // 'curtida' | 'comentario' | 'status_denuncia' | 'selo_empresa'
+            tipo: linha.tipo,
             mensagem: linha.mensagem,
             lida: linha.lida,
             postId: linha.post_id,
             empresaId: linha.empresa_id,
+            atorId: linha.ator_id,
             criadoEm: linha.criado_em,
         };
     }
@@ -95,6 +96,16 @@ class NotificacoesService {
             return true;
         } catch (error) {
             console.error('❌ Erro ao marcar todas como lidas:', error);
+            return false;
+        }
+    }
+    async deletarNotificacao(notificacaoId) {
+        try {
+            const { error } = await this.supabase.from('notificacoes').delete().eq('id', notificacaoId);
+            if (error) throw new Error('Erro ao apagar notificação: ' + error.message);
+            return true;
+        } catch (error) {
+            console.error('❌ Erro ao apagar notificação:', error);
             return false;
         }
     }

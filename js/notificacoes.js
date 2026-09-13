@@ -83,22 +83,24 @@
         const lista = document.getElementById('sinoLista');
         if (!lista) return;
 
-        if (notificacoesCache.length === 0) {
+        const naoLidas = notificacoesCache.filter((n) => !n.lida);
+
+        if (naoLidas.length === 0) {
             lista.innerHTML =
-                '<div class="sino-vazio"><i class="fa-regular fa-bell-slash"></i><p>Nenhuma notificação ainda</p></div>';
+                '<div class="sino-vazio"><i class="fa-regular fa-bell-slash"></i><p>Nenhuma notificação nova</p></div>';
             return;
         }
 
-        lista.innerHTML = notificacoesCache
+        lista.innerHTML = naoLidas
             .map(
                 (n) => `
-            <div class="sino-item ${n.lida ? '' : 'sino-item--nova'}" data-id="${n.id}">
+            <div class="sino-item sino-item--nova" data-id="${n.id}">
                 <div class="sino-item__icone"><i class="fa-solid ${ICONE_POR_TIPO[n.tipo] || 'fa-bell'}"></i></div>
                 <div class="sino-item__corpo">
                     <p>${n.mensagem}</p>
                     <span>${formatarTempo(n.criadoEm)}</span>
                 </div>
-                ${n.lida ? '' : '<span class="sino-item__ponto"></span>'}
+                <span class="sino-item__ponto"></span>
             </div>
         `
             )
@@ -110,13 +112,12 @@
                 const notificacao = notificacoesCache.find((n) => String(n.id) === String(id));
                 if (!notificacao) return;
 
-                if (!notificacao.lida) {
-                    notificacao.lida = true;
-                    renderizarLista();
-                    atualizarBadge();
-                    atualizarBotaoLerTudo();
-                    window.notificacoesService.marcarComoLida(id).catch(() => {});
-                }
+                notificacao.lida = true;
+                renderizarLista();
+                atualizarBadge();
+                atualizarBotaoLerTudo();
+                window.notificacoesService.marcarComoLida(id).catch(() => {});
+
                 irParaDestino(notificacao);
             });
         });
@@ -143,6 +144,7 @@
                 <button type="button" id="sinoMarcarTodas" disabled>Ler tudo</button>
             </div>
             <div class="sino-painel__lista" id="sinoLista"></div>
+            <a href="notificacoes.html" class="sino-painel__rodape">Ver todas as notificações</a>
         `;
 
         wrapper.appendChild(botao);

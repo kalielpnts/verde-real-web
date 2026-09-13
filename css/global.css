@@ -1097,6 +1097,21 @@ footer::after {
     margin-bottom: 10px;
 }
 
+.sino-painel__rodape {
+    display: block;
+    text-align: center;
+    padding: 0.6rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--verde-primario);
+    border-top: var(--border-linha);
+    text-decoration: none;
+}
+
+.sino-painel__rodape:hover {
+    background: var(--bege-fundo);
+}
+
 @media (max-width: 480px) {
     .sino-painel {
         right: -70px;
