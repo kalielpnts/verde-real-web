@@ -1240,49 +1240,17 @@
     margin-bottom: 0.75rem;
 }
 
-.status-denuncia {
+.status-tag {
     display: flex;
+    justify-content: flex-end;
     align-items: center;
-    margin: 0.5rem 0 0.75rem;
-}
-
-.status-etapa {
-    display: flex;
-    align-items: center;
-    flex: 1;
-    position: relative;
-}
-
-.status-bolinha {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    border: 2px solid var(--verde-detalhe2);
-    background: transparent;
-    flex-shrink: 0;
-}
-
-.status-bolinha.status-ativa {
-    background: var(--verde-primario);
-    border-color: var(--verde-primario);
-}
-
-.status-label {
-    font-size: 0.6rem;
-    letter-spacing: 0.05em;
-    color: var(--verde-detalhe2);
-    margin-left: 0.35rem;
-    white-space: nowrap;
-}
-
-.status-label.status-ativa {
-    color: var(--verde-primario);
+    gap: 0.35rem;
+    font-size: 0.8rem;
     font-weight: 600;
+    color: var(--texto-dark);
+    padding: 0 1.5rem 0.5rem 1.5rem;
 }
 
-.status-linha {
-    flex: 1;
-    height: 2px;
-    background: var(--verde-detalhe2);
-    margin: 0 0.5rem;
+.status-tag i {
+    color: var(--verde-primario);
 }

@@ -265,27 +265,19 @@ class FeedManager {
         `;
     }
 
-    renderizarStatus(post) {
-        if (post.status_denuncia === 'rejeitada') {
-            return `<div class="status-denuncia"><span class="status-label" style="color:#c62828;">DENÚNCIA REJEITADA</span></div>`;
-        }
-
-        const etapas = [
-            { chave: 'recebida', label: 'RECEBIDA' },
-            { chave: 'em_analise', label: 'EM ANÁLISE' },
-            { chave: 'resolvida', label: 'RESOLVIDA' },
-        ];
-        const indiceAtual = etapas.findIndex((e) => e.chave === post.status_denuncia);
+        renderizarStatus(post) {
+        const mapa = {
+            recebida: { icone: 'fa-arrow-down', texto: 'Recebida' },
+            em_analise: { icone: 'fa-magnifying-glass', texto: 'Em análise' },
+            resolvida: { icone: 'fa-check', texto: 'Resolvida' },
+            rejeitada: { icone: 'fa-xmark', texto: 'Rejeitada' },
+        };
+        const info = mapa[post.status_denuncia] || mapa['recebida'];
 
         return `
-            <div class="status-denuncia">
-                ${etapas.map((etapa, i) => `
-                    <div class="status-etapa">
-                        <span class="status-bolinha ${i <= indiceAtual ? 'status-ativa' : ''}"></span>
-                        <span class="status-label ${i <= indiceAtual ? 'status-ativa' : ''}">${etapa.label}</span>
-                        ${i < etapas.length - 1 ? '<span class="status-linha"></span>' : ''}
-                    </div>
-                `).join('')}
+            <div class="status-tag">
+                <span>${info.texto}</span>
+                <i class="fas ${info.icone}"></i>
             </div>
         `;
     }
