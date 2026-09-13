@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil da Empresa · Verde Real</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/pages/feed.css">
+</head>
+<body>
+
+    <header class="flex">
+        <div class="logo-box flex">
+            <h1><i class="fa-solid fa-seedling" style="color: var(--verde-primario);"></i> Verde Real</h1>
+        </div>
+        <nav class="nav-links flex">
+            <a href="index.html">Início</a>
+            <a href="selo.html">Selo Verde</a>
+            <a href="sobre.html">Sobre nós</a>
+            <a href="javascript:history.back()"><i class="fas fa-arrow-left"></i> Voltar</a>
+        </nav>
+    </header>
+
+    <div class="feed-wrapper" style="justify-content:center;">
+        <div class="feed-central" style="max-width:600px;">
+            <div id="perfil-empresa-container">
+                <div class="mensagem-feed">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <h3>Carregando perfil...</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/supabase/supabase-config.js"></script>
+    <script src="../js/supabase/auth-supabase.js"></script>
+    <script src="../js/supabase/perfil-empresa.js"></script>
+
+</body>
+</html>

@@ -207,7 +207,7 @@ class FeedManager {
                             </div>
                             <div class="post-empresa-info">
                                 <span>${data}</span>
-                                ${post.empresa_alvo ? `<span><i class="fas fa-building"></i> ${post.empresa_alvo}</span>` : ''}
+                                ${post.empresa_alvo ? `<span onclick="event.stopPropagation(); window.location.href='perfil-empresa.html?id=${post.empresa_id}'" style="cursor:pointer;text-decoration:underline;"><i class="fas fa-building"></i> ${post.empresa_alvo}</span>` : ''}
                             </div>
                         </div>
                     </div>
