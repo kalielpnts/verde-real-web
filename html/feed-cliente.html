@@ -270,18 +270,6 @@
                     });
                 }
 
-                // Publicar denúncia
-                const publicarBtn = document.getElementById('publicarDenunciaBtn');
-                if (publicarBtn) {
-                    publicarBtn.addEventListener('click', function() {
-                        if (feedManager && feedManager.publicarPost) {
-                            feedManager.publicarPost();
-                        } else {
-                            alert('Erro: Feed não inicializado. Recarregue a página.');
-                        }
-                    });
-                }
-
                 // Perfil link
                 const perfilLink = document.getElementById('perfilLink');
                 if (perfilLink) {
