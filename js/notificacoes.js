@@ -54,16 +54,21 @@
     }
 
     function irParaDestino(notificacao) {
+        if (notificacao.tipo === 'seguidor' && notificacao.atorId) {
+            window.location.href = `perfil.html?id=${notificacao.atorId}`;
+            return;
+        }
+
+        if (notificacao.tipo === 'selo_empresa' && notificacao.empresaId) {
+            window.location.href = `perfil.html?id=${notificacao.empresaId}`;
+            return;
+        }
+
         const usuario = window.auth.getUsuarioLogado();
         const feedDestino =
             usuario && (usuario.tipo === 'empresa' || usuario.tipo === 'empresa_selo')
                 ? 'feed-empresa.html'
                 : 'feed-cliente.html';
-
-        if (notificacao.tipo === 'selo_empresa' && notificacao.empresaId) {
-            window.location.href = `perfil-empresa.html?id=${notificacao.empresaId}`;
-            return;
-        }
 
         if (notificacao.postId) {
             const jaEstaNoFeed = window.location.pathname.includes('feed-');
