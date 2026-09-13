@@ -314,7 +314,9 @@ async function verificarConexaoSupabase() {
             return false;
         }
 
-        const { data, error } = await supabase.from('usuarios').select('count', { count: 'exact', head: true });
+        // Schema atual usa `profiles` (a tabela `usuarios` foi descontinuada
+        // quando o site migrou para o mesmo schema do app).
+        const { data, error } = await supabase.from('profiles').select('count', { count: 'exact', head: true });
         
         if (error) {
             console.error('❌ Erro ao conectar com Supabase:', error);
@@ -339,34 +341,30 @@ async function getEstatisticasSite() {
             return { usuarios: 0, empresas: 0, denuncias: 0, selos: 0 };
         }
 
-        // Total de usuários
-        const { count: totalUsuarios } = await supabase
-            .from('usuarios')
-            .select('*', { count: 'exact', head: true })
-            .eq('status', 'ativo');
+        // Schema atual: `profiles` (perfis) + `posts` (denúncias/publicações),
+        // igual ao que feed-supabase.js já usa em getEstatisticas(). As
+        // tabelas antigas `usuarios`/`publicacoes` não existem mais.
 
-        // Total de empresas
+        const { count: totalPerfis } = await supabase
+            .from('profiles')
+            .select('*', { count: 'exact', head: true });
+
         const { count: totalEmpresas } = await supabase
-            .from('usuarios')
+            .from('profiles')
             .select('*', { count: 'exact', head: true })
-            .in('tipo', ['empresa', 'empresa_selo'])
-            .eq('status', 'ativo');
+            .in('tipo', ['empresa', 'empresa_selo']);
 
-        // Total de denúncias
         const { count: totalDenuncias } = await supabase
-            .from('publicacoes')
-            .select('*', { count: 'exact', head: true })
-            .eq('tipo', 'denuncia')
-            .eq('status', 'ativo');
+            .from('posts')
+            .select('*', { count: 'exact', head: true });
 
-        // Total de selos ativos
         const { count: totalSelos } = await supabase
             .from('selos')
             .select('*', { count: 'exact', head: true })
             .eq('status', 'ativo');
 
         return {
-            usuarios: totalUsuarios || 0,
+            usuarios: totalPerfis || 0,
             empresas: totalEmpresas || 0,
             denuncias: totalDenuncias || 0,
             selos: totalSelos || 0

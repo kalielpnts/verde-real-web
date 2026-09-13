@@ -920,4 +920,187 @@ footer::after {
     outline-offset: 2px;
 }
 
+/* ============================================================
+   13. SINO DE NOTIFICAÇÕES (header)
+   ============================================================ */
+.sino-notificacoes {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.sino-btn {
+    position: relative;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    font-size: 1.05rem;
+    color: var(--verde-secundario);
+    transition: color 0.3s;
+    font-family: var(--fonte-principal);
+}
+
+.sino-btn:hover {
+    color: var(--verde-primario);
+}
+
+.sino-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+    border-radius: 8px;
+    background: #c62828;
+    color: var(--branco);
+    font-size: 10px;
+    font-weight: 700;
+    font-family: var(--fonte-mono);
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.sino-painel {
+    position: absolute;
+    top: calc(100% + 14px);
+    right: -10px;
+    width: min(340px, 90vw);
+    max-height: 420px;
+    background: var(--branco);
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: all 0.25s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.sino-painel--aberto {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.sino-painel__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    border-bottom: var(--border-linha);
+    font-family: var(--fonte-principal);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--texto-dark);
+}
+
+.sino-painel__header button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--verde-primario);
+    font-family: var(--fonte-principal);
+    font-weight: 600;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.sino-painel__header button:disabled {
+    color: var(--verde-detalhe);
+    cursor: default;
+}
+
+.sino-painel__lista {
+    overflow-y: auto;
+    max-height: 360px;
+}
+
+.sino-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 18px;
+    border-bottom: var(--border-linha);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.sino-item:hover {
+    background: var(--bege-fundo);
+}
+
+.sino-item--nova {
+    background: var(--verde-claro);
+}
+
+.sino-item--nova:hover {
+    background: var(--verde-claro);
+    filter: brightness(0.98);
+}
+
+.sino-item__icone {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    border-radius: 50%;
+    background: var(--verde-claro);
+    color: var(--verde-secundario);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+}
+
+.sino-item__corpo p {
+    font-family: var(--fonte-principal);
+    font-size: 0.83rem;
+    line-height: 1.4;
+    color: var(--texto-dark);
+    margin: 0;
+}
+
+.sino-item__corpo span {
+    display: block;
+    margin-top: 4px;
+    font-family: var(--fonte-mono);
+    font-size: 0.68rem;
+    color: var(--verde-detalhe2);
+}
+
+.sino-item__ponto {
+    width: 8px;
+    height: 8px;
+    min-width: 8px;
+    border-radius: 50%;
+    background: var(--verde-primario);
+    margin-top: 6px;
+}
+
+.sino-vazio {
+    padding: 36px 20px;
+    text-align: center;
+    color: var(--verde-detalhe2);
+    font-family: var(--fonte-principal);
+    font-size: 0.85rem;
+}
+
+.sino-vazio i {
+    display: block;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 480px) {
+    .sino-painel {
+        right: -70px;
+    }
+}
+
 
