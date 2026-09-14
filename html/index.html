@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verde Real - Contra o greenwashing</title>
-    
+
     <!-- FONTES E ÍCONES -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <!-- CSS - CAMINHOS  -->
+
+    <!-- CSS -->
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/pages/index.css">
 </head>
@@ -39,56 +39,233 @@
             <a href="index.html">Início</a>
             <a href="selo.html">Selo Verde</a>
             <a href="sobre.html">Sobre nós</a>
-            <a href="login.html" class="btn-login">
-                <i class="fa-solid fa-user"></i> Entrar
-            </a>
+            <a href="login.html" class="btn-acao btn--escuro">Entrar / Cadastrar</a>
         </nav>
     </header>
 
-    <!-- HERO -->
-    <section class="hero">
-        <div class="hero__texto flex">
-            <div class="tag-info">Plataforma de Auditoria</div>
-            <h2>Transparência Ambiental de Verdade.</h2>
-            <p>Nossa plataforma separa quem faz a diferença de quem faz marketing. Conectamos consumidores conscientes a empresas verdadeiramente sustentáveis.</p>
-            <div class="hero__botoes flex">
-                <a href="login.html"><button class="btn-acao btn--escuro">Fazer Denúncia</button></a>
-                <a href="selo.html"><button class="btn-acao btn--vazado">Sou Empresa</button></a>
+    <main>
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero__texto flex hover-tag">
+                <div class="tag-info">Plataforma de Auditoria</div>
+                <h2>Transparência Ambiental de Verdade.</h2>
+                <p>Nossa plataforma separa quem faz a diferença de quem faz marketing. Conectamos consumidores conscientes a empresas verdadeiramente sustentáveis.</p>
+                <div class="hero__botoes flex">
+                    <a href="login.html"><button class="btn-acao btn--escuro">Fazer Denúncia</button></a>
+                    <a href="selo.html"><button class="btn-acao btn--vazado">Sou Empresa</button></a>
+                </div>
+            </div>
+
+            <div class="hero__stats">
+                <div class="stat-item">
+                    <h3>+100</h3>
+                    <p>Empresas com o Selo Verde Real</p>
+                </div>
+                <div class="stat-item">
+                    <h3>85%</h3>
+                    <p>Alegações ambientais falsas no Brasil</p>
+                </div>
+                <div class="stat-item">
+                    <h3>+2 Mil</h3>
+                    <p>Denúncias ativas na rede</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CASOS -->
+        <section class="casos">
+            <div class="casos__titulo">
+                <h3>O Fim das Falsas Promessas.</h3>
+                <p>Um sistema construído em rede para garantir que o selo verde seja conquistado com impacto real, e não comprado.</p>
+            </div>
+
+            <div class="pesquisa-grid">
+                <div class="pesquisa-card">
+                    <i class="fa-solid fa-search"></i>
+                    <h3>Vigilância Contínua</h3>
+                    <p>Nossa comunidade rastreia campanhas e embalagens em busca de inconsistências e promessas vazias.</p>
+                </div>
+                <div class="pesquisa-card">
+                    <i class="fa-solid fa-user-shield"></i>
+                    <h3>Auditoria Oficial</h3>
+                    <p>O Selo VR exige provas documentais e visitas físicas. Zero tolerância para "design verde" maquiado.</p>
+                </div>
+                <div class="pesquisa-card">
+                    <i class="fa-solid fa-bullhorn"></i>
+                    <h3>O Poder da Rede</h3>
+                    <p>Um relatório negativo em nossa plataforma repercute instantaneamente nas mídias e alerta investidores.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- O QUE É GREENWASHING (com bolinhas magnetizadas) -->
+        <section class="secao-educacao" id="secao-educacao-interativa">
+            <canvas id="canvas-bolinhas"></canvas>
+
+            <div>
+                <span class="secao-educacao__tag">// O PROBLEMA</span>
+                <h2>O que é a<br>Maquiagem Verde?</h2>
+                <p>O <strong>Greenwashing</strong> ocorre quando uma empresa gasta mais tempo e dinheiro alegando ser "eco-friendly" do que realmente minimizando seu impacto ambiental.</p>
+                <p>Cores verdes na embalagem, imagens de folhas e palavras como "natural" sem nenhuma certificação oficial são armadilhas projetadas para enganar o seu cérebro e capturar o seu dinheiro.</p>
+            </div>
+            <div>
+                <p class="secao-educacao__destaque">"As marcas descobriram que a sustentabilidade vende. Nosso trabalho é garantir que a sustentabilidade que eles vendem seja real."</p>
+            </div>
+        </section>
+
+        <!-- IMPACTO EM DADOS -->
+        <section class="secao-impacto">
+            <div class="impacto-box">
+                <i class="fa-solid fa-chart-pie"></i>
+                <h3>60%</h3>
+                <p>Das alegações ecológicas online de grandes empresas de moda são enganosas ou não fundamentadas.*</p>
+            </div>
+            <div class="impacto-box">
+                <i class="fa-solid fa-users-slash"></i>
+                <h3>88%</h3>
+                <p>Dos consumidores da Geração Z afirmam não confiar em marcas que não comprovam suas práticas ESG.</p>
+            </div>
+            <div class="impacto-box">
+                <i class="fa-solid fa-scale-balanced"></i>
+                <h3>+40</h3>
+                <p>Países já estão implementando leis rigorosas com multas milionárias contra publicidade verde falsa.</p>
+            </div>
+        </section>
+
+        <!-- COMO FUNCIONA O APP -->
+        <section class="secao-app hover-tag">
+            <div class="secao-app__header flex">
+                <span class="tag-info">Para Consumidores</span>
+                <h2>O Poder da Auditoria na Palma da Sua Mão</h2>
+                <p>Desconfiou de um rótulo no supermercado ou de uma campanha na internet? O App da Verde Real coloca a verdade no seu bolso em três passos simples.</p>
+            </div>
+            <div class="passos-grid">
+                <div class="passo-card">
+                    <i class="fa-solid fa-barcode"></i>
+                    <h4>Escaneie e Denuncie</h4>
+                    <p>Use a câmera do seu celular para escanear rótulos suspeitos ou envie prints de anúncios enganosos direto no feed da comunidade.</p>
+                </div>
+                <div class="passo-card">
+                    <i class="fa-solid fa-microchip"></i>
+                    <h4>Análise via IA e Rede</h4>
+                    <p>Nossa inteligência artificial cruza os dados do produto com relatórios ambientais, enquanto nossa comunidade de auditores checa os fatos.</p>
+                </div>
+                <div class="passo-card">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <h4>O Veredito</h4>
+                    <p>Descubra instantaneamente se a empresa possui o <strong>Selo VR Autêntico</strong> ou se foi classificada com um alerta vermelho de Greenwashing.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MARQUEE -->
+        <div class="marquee">
+            <div class="marquee-inner">
+                &nbsp;• RADAR ATIVADO • CONSUMIDOR NO CONTROLE • AUDITORIA RIGOROSA • DENUNCIE O GREENWASHING • DADOS ABERTOS •
+                RADAR ATIVADO • CONSUMIDOR NO CONTROLE • AUDITORIA RIGOROSA • DENUNCIE O GREENWASHING • DADOS ABERTOS •
             </div>
         </div>
-        
-        <div class="hero__stats">
-            <div class="stat-item">
-                <h3>+100</h3>
-                <p>Empresas com o Selo Verde Real</p>
+
+        <!-- PARA EMPRESAS -->
+        <section class="secao-empresas">
+            <div class="empresas-conteudo">
+                <span class="tag-info">Para Empresas Sustentáveis</span>
+                <h2>A Verdade é a Sua Maior Vantagem Competitiva.</h2>
+                <p>Se a sua empresa possui práticas ambientais reais, você está perdendo mercado para concorrentes que mentem. O <strong>Selo Verde Real</strong> blinda sua marca e atrai os consumidores mais exigentes do mercado.</p>
+
+                <ul class="empresas-lista">
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        <div>
+                            <strong>Auditoria Rigorosa</strong><br>
+                            <span style="font-size: 0.9rem; color: var(--verde-detalhe2);">Nossa equipe analisa sua cadeia produtiva e emite um selo impossível de ser falsificado.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        <div>
+                            <strong>Destaque no App</strong><br>
+                            <span style="font-size: 0.9rem; color: var(--verde-detalhe2);">Marcas aprovadas ganham selo de "Compra Segura" para milhares de usuários ativos.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        <div>
+                            <strong>Mitigação de Riscos ESG</strong><br>
+                            <span style="font-size: 0.9rem; color: var(--verde-detalhe2);">Evite crises de imagem e multas regulatórias comprovando suas ações preventivamente.</span>
+                        </div>
+                    </li>
+                </ul>
+                <button class="btn-acao btn--escuro" style="width: fit-content; margin-top: 1rem;">Solicitar Auditoria</button>
             </div>
-            <div class="stat-item">
-                <h3>85%</h3>
-                <p>Alegações ambientais falsas no Brasil</p>
+            <div class="empresas-visual"></div>
+        </section>
+
+        <!-- CTA FINAL -->
+        <section class="secao-cta">
+            <h2>Junte-se à Revolução da Transparência</h2>
+            <p>Seja parte da maior rede de fiscais ambientais do Brasil. Baixe o aplicativo Verde Real agora mesmo e ajude a expor as falsas promessas, premiando quem realmente cuida do planeta.</p>
+
+            <div class="lojas-botoes">
+                <a href="#" class="btn-loja">
+                    <i class="fa-brands fa-apple"></i>
+                    <span>Baixar na<br><strong>App Store</strong></span>
+                </a>
+                <a href="#" class="btn-loja">
+                    <i class="fa-brands fa-google-play"></i>
+                    <span>Disponível no<br><strong>Google Play</strong></span>
+                </a>
             </div>
-            <div class="stat-item">
-                <h3>+2 Mil</h3>
-                <p>Denúncias ativas na rede</p>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="flex">
+        <div class="footer__conteudo flex">
+            <div class="footer__coluna flex">
+                <h1 style="color: var(--verde-detalhe); margin-bottom: 1rem;"><i class="fa-solid fa-seedling" style="color: var(--verde-primario);"></i> Verde Real</h1>
+                <p style="color: var(--verde-detalhe); font-size: clamp(0.85rem, 1.5vw, 0.95rem); max-width: 300px;">A plataforma definitiva contra o greenwashing. Exigindo transparência corporativa real.</p>
+            </div>
+            <div class="footer__coluna flex">
+                <h3 class="footer__titulo">Navegação</h3>
+                <ul class="flex">
+                    <li><a href="">Início</a></li>
+                    <li><a href="">Sobre Nós</a></li>
+                    <li><a href="">Denúncias</a></li>
+                    <li><a href="">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer__coluna flex">
+                <h3 class="footer__titulo">Empresas</h3>
+                <ul class="flex">
+                    <li><a href="#">Selo Verde</a></li>
+                    <li><a href="#">Auditorias</a></li>
+                    <li><a href="#">Suporte</a></li>
+                </ul>
+            </div>
+            <div class="footer__coluna flex">
+                <h3 class="footer__titulo">Contato</h3>
+                <div style="color: var(--verde-claro); font-size: clamp(0.85rem, 1.2vw, 0.9rem); line-height: 2;">
+                    <p style="display: flex; align-items: center; gap: 8px;"><i class="fas fa-envelope"></i> contato@verdereal.com.br</p>
+                    <p style="display: flex; align-items: center; gap: 8px;"><i class="fab fa-whatsapp"></i> (19) 99328-0705</p>
+                </div>
             </div>
         </div>
-    </section>
+        <div class="footer__copyright flex">
+            <p>&copy; 2026 Verde Real. Todos os direitos reservados. Projeto fictício para trabalho de conclusão de curso.</p>
+        </div>
+    </footer>
 
-    <!-- SCRIPTS - CAMINHOS CORRETOS -->
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/supabase/supabase-config.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/supabase/main-supabase.js"></script>
+    <script src="../js/supabase/auth-supabase.js"></script>
+    <script src="../js/supabase/notificacoes-supabase.js"></script>
+    <script src="../js/notificacoes.js"></script>
+    <script src="../js/canvas-bolinhas.js"></script>
 
-<!-- 1. Supabase SDK -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<!-- 2. Configuração do Supabase -->
-<script src="../js/supabase/supabase-config.js"></script>
-
-<!-- 3. Utilitários -->
-<script src="../js/utils.js"></script>
-
-<!-- 4. Funções Globais -->
-<script src="../js/supabase/main-supabase.js"></script>
-<script src="../js/supabase/notificacoes-supabase.js"></script>
-<script src="../js/notificacoes.js"></script>
-    
     <script>
         function hidePreloader() {
             const preloader = document.getElementById('preloader');
@@ -102,4 +279,3 @@
     </script>
 </body>
 </html>
-
