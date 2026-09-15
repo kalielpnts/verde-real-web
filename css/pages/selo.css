@@ -1,21 +1,11 @@
 /* ============================================================
    selo.css - ESTILOS ESPECÍFICOS DA PÁGINA DO SELO
-   ============================================================
-   Este arquivo contém todos os estilos exclusivos da página
-   do selo (selo.html), incluindo:
-   - Hero do selo
-   - Credenciais (pilares)
-   - Processo (timeline)
-   - Benefícios
-   - Empresas certificadas
-   - CTA final
-   - Animações
    ============================================================ */
 
 /* ============================================================
-   1. HERO DO SELO
+   1. HERO DO SELO (mantido exatamente como estava)
    ============================================================ */
-   .selo-hero {
+.selo-hero {
     min-height: 80vh;
     display: grid;
     grid-template-columns: 3fr 1fr;
@@ -28,7 +18,6 @@
     overflow: hidden;
 }
 
-/* Decoração de fundo */
 .selo-hero::before {
     content: '';
     position: absolute;
@@ -92,7 +81,6 @@
     line-height: 1.7;
 }
 
-/* Selo 3D visual */
 .selo-visual {
     display: flex;
     justify-content: center;
@@ -158,67 +146,46 @@
     text-transform: uppercase;
 }
 
-.selo-card-3d .selo-shield {
-    position: absolute;
-    bottom: -10px;
-    right: -10px;
-    background: var(--dourado);
-    color: var(--branco);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    box-shadow: 0 4px 12px rgba(201, 169, 89, 0.3);
-}
-
 /* ============================================================
-   2. SEÇÃO CREDENCIAIS (PILARES)
+   2. CREDENCIAIS (PILARES) — versão do protótipo
    ============================================================ */
 .credenciais {
     padding: var(--pad-section) var(--pad-lateral);
     background: var(--verde-escuro-bg);
     border-bottom: var(--border-linha);
 }
-
-.credenciais .section-header {
-    color: var(--verde-claro);
+.section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 4rem;
 }
-
-.credenciais .section-header .tag {
-    color: var(--verde-claro);
+.section-header .tag {
+    font-family: var(--fonte-mono);
+    color: var(--verde-primario);
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+    display: inline-block;
 }
-
-.credenciais .section-header h2 {
-    color: var(--verde-claro);
+.section-header h2 {
+    font-size: var(--font-h3);
+    color: var(--verde-secundario);
+    margin-bottom: 1rem;
 }
-
-.credenciais .section-header p {
-    color: var(--verde-detalhe);
-}
-
 .grid-credenciais {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
-    margin-top: 3rem;
 }
-
 .card-vidro {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--branco);
+    border: var(--border-linha);
     padding: 2.5rem 2rem;
     transition: all 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
     position: relative;
     overflow: hidden;
-    cursor: default;
-    color: var(--verde-claro);
+    cursor: pointer;
 }
-
 .card-vidro::before {
     content: '';
     position: absolute;
@@ -226,47 +193,17 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
-    transition: left 0.6s ease;
+    background: linear-gradient(90deg, transparent, rgba(212, 194, 114, 0.144), transparent);
+    transition: left 0.6s;
 }
-
-.card-vidro:hover::before {
-    left: 100%;
-}
-
-.card-vidro:hover {
-    transform: translateY(-8px);
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.15);
-}
-
-.card-vidro i {
-    font-size: 2.5rem;
-    color: var(--verde-primario);
-    margin-bottom: 1.5rem;
-    display: block;
-    transition: transform 0.4s ease;
-}
-
-.card-vidro:hover i {
-    transform: scale(1.1);
-}
-
-.card-vidro h3 {
-    font-size: 1.3rem;
-    color: var(--branco);
-    margin-bottom: 1rem;
-    font-weight: 600;
-}
-
-.card-vidro p {
-    color: var(--verde-detalhe);
-    line-height: 1.6;
-    font-size: 0.95rem;
-}
+.card-vidro:hover::before { left: 100%; }
+.card-vidro:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(0,0,0,0.05); }
+.card-vidro i { font-size: 2.5rem; color: var(--verde-primario); margin-bottom: 1.5rem; }
+.card-vidro h3 { font-size: 1.5rem; color: var(--verde-secundario); margin-bottom: 1rem; font-weight: 600; }
+.card-vidro p { color: var(--verde-detalhe2); line-height: 1.5; }
 
 /* ============================================================
-   3. SEÇÃO PROCESSO (TIMELINE)
+   3. PROCESSO (TIMELINE) — versão do protótipo
    ============================================================ */
 .processo-selo {
     background: var(--verde-claro);
@@ -274,21 +211,13 @@
     border-bottom: var(--border-linha);
     position: relative;
 }
-
-.processo-selo .section-header .tag {
-    color: var(--verde-primario);
-}
-
 .timeline {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     position: relative;
     margin-top: 4rem;
-    gap: 1rem;
 }
-
-/* Linha conectora */
 .timeline::before {
     content: '';
     position: absolute;
@@ -299,10 +228,9 @@
     background: var(--verde-primario);
     opacity: 0.3;
 }
-
 .timeline-item {
     flex: 1;
-    min-width: 180px;
+    min-width: 200px;
     text-align: center;
     position: relative;
     z-index: 2;
@@ -311,12 +239,10 @@
     transform: translateY(20px);
     transition: all 0.6s ease;
 }
-
 .timeline-item.visivel {
     opacity: 1;
     transform: translateY(0);
 }
-
 .timeline-icon {
     width: 80px;
     height: 80px;
@@ -327,59 +253,22 @@
     justify-content: center;
     margin: 0 auto 1.5rem;
     border: 2px solid var(--verde-primario);
-    transition: all 0.4s ease;
+    transition: all 0.4s;
     box-shadow: 0 5px 15px rgba(48, 87, 80, 0.1);
-    position: relative;
 }
-
-.timeline-icon .step-number {
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    background: var(--dourado);
-    color: var(--branco);
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.75rem;
-    font-weight: 700;
-    font-family: var(--fonte-mono);
-}
-
 .timeline-item:hover .timeline-icon {
-    transform: scale(1.12) rotate(-5deg);
+    transform: scale(1.15);
+    rotate: 10deg;
     background: var(--verde-primario);
     border-color: var(--verde-primario);
 }
-
-.timeline-item:hover .timeline-icon i {
-    color: var(--branco);
-}
-
-.timeline-icon i {
-    font-size: 2rem;
-    color: var(--verde-primario);
-    transition: all 0.3s ease;
-}
-
-.timeline-item h4 {
-    font-size: 1.1rem;
-    color: var(--verde-secundario);
-    margin-bottom: 0.5rem;
-    font-weight: 700;
-}
-
-.timeline-item p {
-    color: var(--verde-detalhe2);
-    font-size: 0.9rem;
-    line-height: 1.5;
-}
+.timeline-icon i { font-size: 2rem; color: var(--verde-primario); transition: 0.3s; }
+.timeline-item:hover .timeline-icon i { color: var(--branco); }
+.timeline-item h4 { font-size: 1.3rem; color: var(--verde-secundario); margin-bottom: 0.5rem; font-weight: 600; }
+.timeline-item p { color: var(--verde-detalhe2); font-size: 0.9rem; }
 
 /* ============================================================
-   4. SEÇÃO BENEFÍCIOS
+   4. BENEFÍCIOS — versão do protótipo
    ============================================================ */
 .beneficios {
     display: grid;
@@ -390,38 +279,20 @@
     border-bottom: var(--border-linha);
     align-items: center;
 }
-
-.beneficios-lista {
-    list-style: none;
-    animation: fadeInLeft 0.6s ease forwards;
-}
-
+.beneficios-lista { list-style: none; }
 .beneficios-lista li {
     display: flex;
     gap: 1.2rem;
     margin-bottom: 2rem;
     padding: 0.5rem 0;
-    border-bottom: 1px solid var(--bege-escuro);
-    transition: all 0.3s ease;
+    border-bottom: 1px solid var(--border-linha);
+    transition: all 0.2s;
 }
-
 .beneficios-lista li:hover {
     border-bottom-color: var(--verde-primario);
-    transform: translateX(6px);
+    transform: translateX(4px);
 }
-
-.beneficios-lista i {
-    font-size: 1.8rem;
-    color: var(--verde-primario);
-    min-width: 48px;
-    margin-top: 0.2rem;
-    transition: transform 0.3s ease;
-}
-
-.beneficios-lista li:hover i {
-    transform: scale(1.1) rotate(-5deg);
-}
-
+.beneficios-lista i { font-size: 1.8rem; color: var(--verde-primario); min-width: 48px; }
 .beneficios-lista strong {
     color: var(--verde-secundario);
     font-size: 1.1rem;
@@ -429,41 +300,15 @@
     margin-bottom: 0.2rem;
     font-weight: 700;
 }
-
-.beneficios-lista div span {
-    color: var(--verde-detalhe2);
-    line-height: 1.4;
-    font-size: 0.95rem;
-}
-
-/* Visual dos benefícios */
+.beneficios-lista div { color: var(--verde-detalhe2); line-height: 1.4; }
 .beneficios-visual {
     background: var(--branco);
     border: var(--border-linha);
     padding: 2.5rem;
     text-align: center;
-    animation: fadeInRight 0.6s ease forwards;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-.beneficios-visual:hover {
-    transform: translateY(-4px);
-    box-shadow: 8px 8px 0 rgba(48, 87, 80, 0.05);
-}
-
-.beneficios-visual i {
-    font-size: 2.8rem;
-    color: var(--verde-primario);
-    margin-bottom: 1rem;
-}
-
-.beneficios-visual h3 {
-    color: var(--verde-secundario);
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-}
-
+.beneficios-visual i { font-size: 2.8rem; color: var(--verde-primario); margin-bottom: 1rem; }
+.beneficios-visual h3 { color: var(--verde-secundario); font-size: 2.2rem; margin-bottom: 1rem; font-weight: 600; }
 .contador-numero {
     font-size: 3rem;
     font-weight: 700;
@@ -472,26 +317,8 @@
     margin: 0.5rem 0;
 }
 
-.beneficios-visual p {
-    color: var(--verde-detalhe2);
-    font-size: 0.95rem;
-}
-
-.beneficios-visual .destaque {
-    margin-top: 1.5rem;
-    font-size: 2.8rem;
-    font-weight: 600;
-    color: var(--verde-primario);
-}
-
-.beneficios-visual .destaque-label {
-    font-size: 1rem;
-    margin-top: 0.3rem;
-    color: var(--verde-detalhe2);
-}
-
 /* ============================================================
-   5. SEÇÃO EMPRESAS CERTIFICADAS
+   5. EMPRESAS CERTIFICADAS — versão do protótipo (estática)
    ============================================================ */
 .certificadas {
     padding: var(--pad-section) var(--pad-lateral);
@@ -499,67 +326,30 @@
     border-bottom: var(--border-linha);
     text-align: center;
 }
-
-.certificadas .section-header .tag {
-    color: var(--verde-primario);
-}
-
-/* Carrossel de marcas */
 .carrossel-marcas {
     display: flex;
     overflow: hidden;
+    margin-right: 4rem;
     white-space: nowrap;
     padding: 2rem 0;
+    flex-wrap: wrap;
+    justify-content: center;
     mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
-
-.carrossel-inner {
-    display: flex;
-    animation: scrollMarcas 30s linear infinite;
-    gap: 1rem;
-}
-
-.carrossel-marcas:hover .carrossel-inner {
-    animation-play-state: paused;
-}
-
 .marca-item {
     display: inline-flex;
     align-items: center;
-    gap: 0.8rem;
+    gap: 1rem;
+    margin: 0.4rem;
     background: var(--branco);
     padding: 0.8rem 2rem;
-    border-radius: 0;
+    border-radius: 0px;
     border: var(--border-linha);
     font-weight: 500;
-    font-size: 0.9rem;
-    color: var(--verde-secundario);
-    flex-shrink: 0;
-    transition: all 0.3s ease;
-}
-
-.marca-item i {
-    color: var(--verde-primario);
-}
-
-.marca-item:hover {
-    background: var(--verde-escuro-bg);
-    color: var(--branco);
-    transform: scale(1.05);
-}
-
-.marca-item:hover i {
-    color: var(--dourado);
-}
-
-@keyframes scrollMarcas {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
 }
 
 /* ============================================================
-   6. SEÇÃO CTA FINAL
+   6. CTA FINAL
    ============================================================ */
 .cta-selo {
     background: var(--verde-escuro-bg);
@@ -567,355 +357,46 @@
     text-align: center;
     border-bottom: var(--border-linha);
 }
-
-.cta-selo h2 {
-    color: var(--branco);
-    font-size: var(--font-h3);
-    margin-bottom: 1rem;
-}
-
-.cta-selo p {
-    color: var(--verde-detalhe);
-    max-width: 600px;
-    margin: 0 auto 2rem;
-    font-size: var(--font-p);
-    line-height: 1.6;
-}
-
+.cta-selo h2 { color: var(--branco); font-size: var(--font-h3); margin-bottom: 1rem; }
+.cta-selo p { color: var(--verde-detalhe); max-width: 600px; margin: 0 auto 2rem; }
 .btn-grande {
     padding: 1rem 2.5rem;
     font-size: 1rem;
     background: var(--dourado);
     color: var(--verde-escuro-bg);
     border: none;
-    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: none;
     font-weight: 700;
-    transition: all 0.3s ease;
-    font-family: var(--fonte-principal);
-    cursor: pointer;
 }
-
-.btn-grande:hover {
-    transform: translateY(-4px);
-    background: #e2bc6e;
-    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2);
-}
+.btn-grande:hover { transform: translateY(-3px); background: #e2bc6e; }
 
 /* ============================================================
    7. RESPONSIVIDADE
    ============================================================ */
-
-/* Tablets e telas médias */
 @media (max-width: 1024px) {
-    .selo-hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 2rem;
-        padding: var(--pad-section) 1.5rem;
-    }
-
-    .selo-hero__conteudo {
-        margin: 0 auto;
-        text-align: center;
-    }
-
-    .selo-hero__conteudo p {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .selo-hero__conteudo .hero__botoes {
-        justify-content: center;
-    }
-
-    .selo-card-3d {
-        width: 200px;
-        height: 200px;
-    }
-
-    .selo-card-3d i {
-        font-size: 3rem;
-    }
-
-    .selo-card-3d h3 {
-        font-size: 1.5rem;
-    }
-
-    .beneficios {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        text-align: center;
-    }
-
-    .beneficios-lista li {
-        text-align: left;
-        justify-content: flex-start;
-    }
-
-    .beneficios-lista {
-        max-width: 600px;
-        margin: 0 auto;
-    }
-
-    .timeline::before {
-        display: none;
-    }
-
-    .timeline {
-        flex-direction: column;
-        gap: 2rem;
-        align-items: center;
-    }
-
-    .timeline-item {
-        max-width: 400px;
-        width: 100%;
-    }
+    .selo-hero, .beneficios { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
+    .timeline::before { display: none; }
+    .timeline { flex-direction: column; gap: 2rem; }
+    .footer__conteudo { grid-template-columns: 1fr 1fr; }
+    .selo-hero__conteudo { margin: 0 auto; text-align: center; }
+    .selo-hero__conteudo p { margin-left: auto; margin-right: auto; }
 }
-
-/* Mobile */
 @media (max-width: 768px) {
-    .selo-hero {
-        padding: 3rem 1rem;
-        min-height: auto;
-    }
-
-    .selo-hero__conteudo h1 {
-        font-size: clamp(1.8rem, 5vw, 2.5rem);
-    }
-
-    .selo-card-3d {
-        width: 160px;
-        height: 160px;
-    }
-
-    .selo-card-3d i {
-        font-size: 2.5rem;
-    }
-
-    .selo-card-3d h3 {
-        font-size: 1.2rem;
-    }
-
-    .selo-card-3d .selo-shield {
-        width: 32px;
-        height: 32px;
-        font-size: 0.9rem;
-        bottom: -8px;
-        right: -8px;
-    }
-
-    .grid-credenciais {
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-    }
-
-    .card-vidro {
-        padding: 1.5rem 1.2rem;
-    }
-
-    .card-vidro i {
-        font-size: 2rem;
-    }
-
-    .card-vidro h3 {
-        font-size: 1.1rem;
-    }
-
-    .card-vidro p {
-        font-size: 0.85rem;
-    }
-
-    .timeline-item {
-        min-width: unset;
-        padding: 0 0.5rem;
-    }
-
-    .timeline-icon {
-        width: 60px;
-        height: 60px;
-    }
-
-    .timeline-icon i {
-        font-size: 1.5rem;
-    }
-
-    .timeline-icon .step-number {
-        width: 22px;
-        height: 22px;
-        font-size: 0.6rem;
-        top: -6px;
-        right: -6px;
-    }
-
-    .beneficios {
-        padding: var(--pad-section) 1rem;
-        gap: 1.5rem;
-    }
-
-    .beneficios-lista li {
-        gap: 0.8rem;
-        margin-bottom: 1.2rem;
-    }
-
-    .beneficios-lista i {
-        font-size: 1.4rem;
-        min-width: 36px;
-    }
-
-    .beneficios-lista strong {
-        font-size: 1rem;
-    }
-
-    .beneficios-visual {
-        padding: 1.5rem;
-    }
-
-    .beneficios-visual h3 {
-        font-size: 1.4rem;
-    }
-
-    .contador-numero {
-        font-size: 2.2rem;
-    }
-
-    .beneficios-visual .destaque {
-        font-size: 2rem;
-    }
-
-    .carrossel-marcas {
-        padding: 1.5rem 0;
-    }
-
-    .marca-item {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.8rem;
-    }
-
-    .cta-selo h2 {
-        font-size: clamp(1.6rem, 4vw, 2rem);
-    }
-
-    .btn-grande {
-        padding: 0.8rem 1.5rem;
-        font-size: 0.9rem;
-        width: 100%;
-        max-width: 300px;
-    }
-}
-
-/* Telas muito pequenas */
-@media (max-width: 480px) {
-    .selo-hero {
-        padding: 2rem 0.8rem;
-    }
-
-    .selo-hero__conteudo h1 {
-        font-size: clamp(1.5rem, 4vw, 1.8rem);
-    }
-
-    .selo-hero__conteudo .hero__botoes {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .selo-hero__conteudo .hero__botoes .btn-acao {
-        width: 100%;
-        max-width: 280px;
-    }
-
-    .selo-badge {
-        font-size: 0.65rem;
-        padding: 0.2rem 0.6rem;
-    }
-
-    .selo-card-3d {
-        width: 140px;
-        height: 140px;
-    }
-
-    .selo-card-3d i {
-        font-size: 2rem;
-    }
-
-    .selo-card-3d h3 {
-        font-size: 1rem;
-    }
-
-    .selo-card-3d p {
-        font-size: 0.6rem;
-    }
-
-    .grid-credenciais {
-        grid-template-columns: 1fr;
-    }
-
-    .card-vidro {
-        padding: 1.2rem 1rem;
-    }
-
-    .timeline-item h4 {
-        font-size: 1rem;
-    }
-
-    .timeline-item p {
-        font-size: 0.85rem;
-    }
-
-    .certificadas .section-header h2 {
-        font-size: clamp(1.4rem, 4vw, 1.8rem);
-    }
-
-    .beneficios-lista li {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 0.5rem;
-    }
-
-    .beneficios-lista i {
-        min-width: unset;
-    }
-
-    .cta-selo p {
-        font-size: 0.95rem;
-    }
+    .footer__conteudo { grid-template-columns: 1fr; text-align: center; }
+    .footer__coluna { align-items: center; }
+    .selo-card-3d { width: 200px; height: 200px; }
+    .selo-card-3d i { font-size: 3rem; }
+    .selo-card-3d h3 { font-size: 1.5rem; }
 }
 
 /* ============================================================
-   8. ANIMAÇÕES ESPECÍFICAS
+   8. ANIMAÇÕES
    ============================================================ */
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
-
-@keyframes fadeInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
-
-@keyframes fadeInRight {
-    from {
-        opacity: 0;
-        transform: translateX(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-
